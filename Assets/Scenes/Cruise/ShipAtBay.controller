@@ -5,13 +5,13 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Background
+  m_Name: ShipAtBay
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110729356}
+    m_StateMachine: {fileID: 110720302}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -22,13 +22,13 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 0}
   m_MultiThreadedStateMachine: 1
---- !u!1102 &110297904
+--- !u!1102 &110207806
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BackgroundFadeOut
+  m_Name: AmbientSoundFadeIn
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -37,9 +37,9 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400000, guid: 242e9a780740d504fb426f36e0f8951a, type: 2}
+  m_Motion: {fileID: 7400000, guid: d897df6c439d59f49a9e2e0d314ae92e, type: 2}
   m_Tag: 
---- !u!1107 &110729356
+--- !u!1107 &110720302
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -48,7 +48,7 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 110297904}
+    m_State: {fileID: 110207806}
     m_Position: {x: 200, y: 0, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
@@ -59,4 +59,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 110297904}
+  m_DefaultState: {fileID: 110207806}
