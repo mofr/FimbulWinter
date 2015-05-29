@@ -171,7 +171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &171113505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,21 +266,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &511060032 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 102988, guid: e0b5b415adb511244872e5a454cab9b5, type: 2}
-  m_PrefabInternal: {fileID: 815543927}
---- !u!114 &511060037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 511060032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6fda296d63abc9428b9b7d5f538fb0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &523790093
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +344,48 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1001 &737422052
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.68900013
+      objectReference: {fileID: 0}
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.45700002
+      objectReference: {fileID: 0}
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428718, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &815543927
 Prefab:
   m_ObjectHideFlags: 0
@@ -368,11 +395,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 418820, guid: e0b5b415adb511244872e5a454cab9b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.34000015
+      value: 2.83899999
       objectReference: {fileID: 0}
     - target: {fileID: 418820, guid: e0b5b415adb511244872e5a454cab9b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.88000011
+      value: -3.37599993
       objectReference: {fileID: 0}
     - target: {fileID: 418820, guid: e0b5b415adb511244872e5a454cab9b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -396,7 +423,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418820, guid: e0b5b415adb511244872e5a454cab9b5, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0b5b415adb511244872e5a454cab9b5, type: 2}
@@ -515,7 +542,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1522783376
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +640,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!95 &1522783379
 Animator:
   serializedVersion: 3
@@ -662,7 +689,7 @@ RectTransform:
   - {fileID: 523790094}
   - {fileID: 209823296}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}

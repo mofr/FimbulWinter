@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 3fe25cc886ceb0a4e850c001356525d8
+timeCreated: 1432920445
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: cloak
+    21300002: head
+    21300004: front_hand
+    21300006: chest
+    21300008: back_hand
+    21300010: front_glove
+    21300012: pelvis
+    21300014: back_glove
+    21300016: front_leg
+    21300018: back_leg
+    21300020: front_foot
+    21300022: back_foot
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: cloak
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 377
+        width: 109
+        height: 99
+      alignment: 9
+      pivot: {x: .4524571, y: .918762505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: head
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 388
+        width: 85
+        height: 79
+      alignment: 9
+      pivot: {x: .493226171, y: .310496658}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: front_hand
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 272
+        width: 49
+        height: 69
+      alignment: 9
+      pivot: {x: .711518407, y: .883865595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: chest
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 275
+        width: 72
+        height: 69
+      alignment: 9
+      pivot: {x: .659943879, y: .107789412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: back_hand
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 282
+        width: 47
+        height: 62
+      alignment: 9
+      pivot: {x: .230477184, y: .825047135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: front_glove
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 172
+        width: 39
+        height: 35
+      alignment: 9
+      pivot: {x: .426180333, y: .779673576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pelvis
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 172
+        width: 62
+        height: 56
+      alignment: 9
+      pivot: {x: .48142612, y: .705642402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: back_glove
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 174
+        width: 103
+        height: 62
+      alignment: 9
+      pivot: {x: .11427144, y: .481425881}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: front_leg
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 106
+        width: 38
+        height: 51
+      alignment: 9
+      pivot: {x: .621221423, y: .838704407}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: back_leg
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 109
+        width: 35
+        height: 43
+      alignment: 9
+      pivot: {x: .450646967, y: .807984829}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: front_foot
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 38
+        width: 36
+        height: 38
+      alignment: 9
+      pivot: {x: .436022431, y: .787899196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: back_foot
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 41
+        width: 38
+        height: 37
+      alignment: 9
+      pivot: {x: .393932939, y: .811242402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
