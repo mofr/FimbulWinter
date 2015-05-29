@@ -20,11 +20,13 @@ public class BackgroundScroller : MonoBehaviour {
 		bg1 = new GameObject ("bg1");
 		bg1.transform.parent = scrollingBackground.transform;
 		renderer1 = bg1.AddComponent<SpriteRenderer>();
+		renderer1.sortingLayerName = "Background";
 		renderer1.sprite = firstSprite;
 
 		bg2 = new GameObject ("bg2");
 		bg2.transform.parent = scrollingBackground.transform;
 		renderer2 = bg2.AddComponent<SpriteRenderer>();
+		renderer2.sortingLayerName = "Background";
 		renderer2.sprite = randomSprite();
 
 		bg2.transform.Translate (renderer1.sprite.bounds.size.x/2 + renderer2.sprite.bounds.size.x/2, 0, 0);
