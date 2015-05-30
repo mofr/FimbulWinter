@@ -505,6 +505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fda296d63abc9428b9b7d5f538fb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1.20000005
+  jumpForce: 300
   steps:
   - {fileID: 8300000, guid: 37ef855941d895749841a7bec32603f2, type: 3}
   - {fileID: 8300000, guid: e59db29529167a24085b943e516652a5, type: 3}
@@ -689,7 +691,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300008, guid: 8983b6b8af581e146a99352f82b6fb0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21272864
@@ -767,7 +769,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300002, guid: 8983b6b8af581e146a99352f82b6fb0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21288406

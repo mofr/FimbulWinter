@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
+	public float speed = 2f;
+	public float jumpForce = 350f;
 	public AudioClip[] steps;
 
 	Animator anim;
@@ -18,7 +20,7 @@ public class Character : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			Jump();
+			anim.SetTrigger ("Jump");
 		}
 
 		if (Input.GetKey (KeyCode.LeftArrow)) {
@@ -28,15 +30,16 @@ public class Character : MonoBehaviour {
 		}
 
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x));
+		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
+		anim.SetBool ("Grounded", Mathf.Abs(rigidBody.velocity.y) < 0.1);
 	}
 
 	void Jump() {
-		rigidBody.AddForce(new Vector2(0f, 250.0f));
-		anim.SetTrigger ("Jump");
+		rigidBody.AddForce(new Vector2(0f, jumpForce));
 	}
 
 	void Move(float move) {
-		rigidBody.velocity = new Vector2 (move, rigidBody.velocity.y);
+		rigidBody.velocity = new Vector2 (move*speed, rigidBody.velocity.y);
 
 		if (move > 0 && !facingRight)
 		{
