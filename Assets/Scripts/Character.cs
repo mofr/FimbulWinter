@@ -3,13 +3,17 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
+	public AudioClip[] steps;
+
 	Animator anim;
 	Rigidbody2D rigidBody;
+	AudioSource audioSource;
 	bool facingRight = true;
 	
 	void Start () {
 		anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody2D>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	void FixedUpdate () {
@@ -53,5 +57,10 @@ public class Character : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public void OnStep() {
+		AudioClip audioClip = steps[Random.Range (0, steps.Length)];
+		audioSource.PlayOneShot (audioClip);
 	}
 }
