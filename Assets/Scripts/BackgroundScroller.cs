@@ -7,6 +7,8 @@ public class BackgroundScroller : MonoBehaviour {
 	public Sprite[] loopingSprites;
 
 	public float speed = 1.0f;
+	public float yOffset = 0f;
+	public float xOffset = 0f;
 
 	GameObject bg1;
 	GameObject bg2;
@@ -29,7 +31,8 @@ public class BackgroundScroller : MonoBehaviour {
 		renderer2.sortingLayerName = "Background";
 		renderer2.sprite = randomSprite();
 
-		bg2.transform.Translate (renderer1.sprite.bounds.size.x/2 + renderer2.sprite.bounds.size.x/2, 0, 0);
+		bg1.transform.Translate (xOffset, yOffset, 0);
+		bg2.transform.Translate (xOffset + renderer1.sprite.bounds.size.x/2 + renderer2.sprite.bounds.size.x/2 - 0.01f, yOffset, 0);
 	}
 
 	void Update () {
@@ -53,7 +56,7 @@ public class BackgroundScroller : MonoBehaviour {
 
 	void Swap() {
 		renderer1.sprite = randomSprite(renderer2.sprite);
-		bg1.transform.position = bg2.transform.position + new Vector3 (renderer2.bounds.size.x/2 + renderer1.bounds.size.x/2, 0, 0);
+		bg1.transform.position = bg2.transform.position + new Vector3 (renderer2.bounds.size.x/2 + renderer1.bounds.size.x/2 - 0.01f, 0, 0);
 
 		GameObject tmpObject = bg1;
 		bg1 = bg2;
