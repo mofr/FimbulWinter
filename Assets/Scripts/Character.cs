@@ -19,14 +19,16 @@ public class Character : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			anim.SetTrigger ("Jump");
+		if (Input.GetButtonDown ("Jump")) {
+			Jump ();
 		}
 
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			Move (-1.0f);
-		} else if (Input.GetKey (KeyCode.RightArrow)) {
-			Move (1.0f);
+		if (Input.GetButton ("Horizontal")) {
+			Move (Input.GetAxis("Horizontal"));
+		}
+
+		if (Input.GetButtonDown ("Use")) {
+			Debug.Log ("Use!");
 		}
 
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x));
@@ -34,11 +36,11 @@ public class Character : MonoBehaviour {
 		anim.SetBool ("Grounded", Mathf.Abs(rigidBody.velocity.y) < 0.1);
 	}
 
-	void Jump() {
-		rigidBody.AddForce(new Vector2(0f, jumpForce));
+	public void Jump() {
+		anim.SetTrigger ("Jump");
 	}
 
-	void Move(float move) {
+	public void Move(float move) {
 		rigidBody.velocity = new Vector2 (move*speed, rigidBody.velocity.y);
 
 		if (move > 0 && !facingRight)
@@ -62,8 +64,12 @@ public class Character : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	public void OnStep() {
+	void OnStep() {
 		AudioClip audioClip = steps[Random.Range (0, steps.Length)];
 		audioSource.PlayOneShot (audioClip);
+	}
+
+	void OnJump() {
+		rigidBody.AddForce(new Vector2(0f, jumpForce));
 	}
 }
