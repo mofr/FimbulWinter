@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour {
 		camera = GetComponent<Camera> ();
 	}
 
-	void FixedUpdate () {
+	void LateUpdate () {
 		if (!target)
 			return;
 

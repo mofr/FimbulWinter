@@ -19,18 +19,6 @@ public class Character : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (Input.GetButtonDown ("Jump")) {
-			Jump ();
-		}
-
-		if (Input.GetButton ("Horizontal")) {
-			Move (Input.GetAxis("Horizontal"));
-		}
-
-		if (Input.GetButtonDown ("Use")) {
-			Debug.Log ("Use!");
-		}
-
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x));
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
 		anim.SetBool ("Grounded", Mathf.Abs(rigidBody.velocity.y) < 0.1);
