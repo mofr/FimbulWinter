@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System.Collections;
 
 public class Talkable : MonoBehaviour {
 	
 	public GameObject bubblePrefab;
+	public UnityEvent action;
 	public string[] phrases = {
 		"Привет!",
 	};
@@ -47,6 +49,8 @@ public class Talkable : MonoBehaviour {
 		opened = false;
 		Destroy (bubble);
 		PlayerInput.instance.enabled = true;
+
+		action.Invoke ();
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider) {

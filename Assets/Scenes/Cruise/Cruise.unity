@@ -87,62 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &83301507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 83301508}
-  - 114: {fileID: 83301510}
-  - 58: {fileID: 83301509}
-  m_Layer: 0
-  m_Name: Conversation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &83301508
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 83301507}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .670000017, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 365854483}
-  m_RootOrder: 1
---- !u!58 &83301509
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 83301507}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.77999997
---- !u!114 &83301510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 83301507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0632d9284713acf49b5e773c7c34061d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubblePrefab: {fileID: 174984, guid: e6d12ef337437394fa7fda8d7118bf0c, type: 2}
-  phrases:
-  - "\u041F\u0440\u0438\u0432\u0435\u0442, \u044F \u043B\u043E\u0434\u043E\u0447\u043D\u0438\u043A!"
 --- !u!1 &108694061
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 108694061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.53178596, y: -.0672351718, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2040583203}
@@ -634,6 +578,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11470820, guid: 8febf20d9616a604aa664642b74d9ca5, type: 2}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 849151896}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8febf20d9616a604aa664642b74d9ca5, type: 2}
   m_IsPrefabParent: 0
@@ -754,6 +702,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11424206, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 849151896}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fbfa0ff93e5ced489cdfb354d571186, type: 2}
   m_IsPrefabParent: 0
@@ -813,6 +765,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 849151895}
   - 114: {fileID: 849151894}
+  - 114: {fileID: 849151896}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -849,6 +802,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &849151896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 849151893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184b46802fd2d31448390cb023a21485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiBackgroundAnim: {fileID: 523790097}
+  ambientSoundAnim: {fileID: 1522783379}
 --- !u!1001 &863438084
 Prefab:
   m_ObjectHideFlags: 0
@@ -1023,7 +989,7 @@ GameObject:
   - 82: {fileID: 1522783377}
   - 95: {fileID: 1522783379}
   m_Layer: 0
-  m_Name: ShipAtBayAudio
+  m_Name: AmbientSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
