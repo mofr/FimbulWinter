@@ -25,6 +25,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 471074}
   - 60: {fileID: 6016658}
+  - 61: {fileID: 6134924}
+  - 61: {fileID: 6161508}
   m_Layer: 0
   m_Name: Drakkar
   m_TagString: Untagged
@@ -79,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.99000001, z: 0}
+  m_LocalPosition: {x: -1.53178596, y: -3.92276478, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429892}
@@ -99,14 +101,40 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -6.30327225, y: .560745478}
+    - - {x: -6.49008846, y: .550366879}
       - {x: 5.83541012, y: .559422731}
-      - {x: 5.86412716, y: 3.98799562}
-      - {x: 8.29559994, y: 4.02838659}
+      - {x: 5.86412716, y: 5.08357716}
+      - {x: 8.36946011, y: 5.07472801}
       - {x: 7.40950823, y: -.372426748}
       - {x: -7.68237734, y: -.154131174}
-      - {x: -7.68210077, y: 2.58169079}
-      - {x: -6.46300936, y: 2.54654217}
+      - {x: -8.01773262, y: 4.89639854}
+      - {x: -6.53050613, y: 4.95742321}
+--- !u!61 &6134924
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135398}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 2c220b3b72b318d47a49be468d5a6e22, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 6.03931618, y: 2.75796843}
+  serializedVersion: 2
+  m_Size: {x: .58136797, y: 4.83746243}
+--- !u!61 &6161508
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135398}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 2c220b3b72b318d47a49be468d5a6e22, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -6.6233387, y: 2.75796843}
+  serializedVersion: 2
+  m_Size: {x: .472540855, y: 4.83746243}
 --- !u!212 &21247704
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -156,7 +184,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -871581065
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 9adaf386e82eed444b424d2b3e012604, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
