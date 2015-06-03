@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Talkable : MonoBehaviour {
@@ -7,7 +8,6 @@ public class Talkable : MonoBehaviour {
 	public string[] phrases = {
 		"Привет!",
 	};
-
 
 	GameObject bubble;
 	bool hot = false;
@@ -40,6 +40,8 @@ public class Talkable : MonoBehaviour {
 
 				currentPhrase = 0;
 				bubble.GetComponent<SpeechBubble>().phrase.text = phrases[currentPhrase];
+
+				UsageHint.Hide();
 			}
 		}
 	}
@@ -47,12 +49,14 @@ public class Talkable : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "Player") {
 			hot = true;
+			UsageHint.Show();
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D collider) {
 		if (collider.tag == "Player") {
 			hot = false;
+			UsageHint.Hide();
 		}
 	}
 }
