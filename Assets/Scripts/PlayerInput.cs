@@ -14,6 +14,10 @@ public class PlayerInput : MonoBehaviour
 	
 	void Start ()
 	{
+		if (!pawn) {
+			pawn = GameObject.FindWithTag("Player");
+		}
+
 		character = pawn.GetComponent<Character>();
 		if (!character) {
 			Debug.LogError("Pawn must have Character component");
