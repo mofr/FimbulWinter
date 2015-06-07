@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Mockup
   - 
   - 
   - 
@@ -49,4 +49,10 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1089720049
+    locked: 0
+  - name: PuppetBones
+    uniqueID: 406125125
+    locked: 0
+  - name: PuppetControls
+    uniqueID: 1302537965
     locked: 0
