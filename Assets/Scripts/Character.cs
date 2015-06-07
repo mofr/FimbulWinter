@@ -10,12 +10,18 @@ public class Character : MonoBehaviour {
 	Animator anim;
 	Rigidbody2D rigidBody;
 	AudioSource audioSource;
+	Puppet2D_GlobalControl puppet;
 	bool facingRight = true;
-	
-	void Start () {
+
+	void Awake() {
 		anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody2D>();
 		audioSource = GetComponent<AudioSource>();
+		puppet = GetComponent<Puppet2D_GlobalControl>();
+	}
+	
+	void Start () {
+
 	}
 
 	void FixedUpdate () {
@@ -29,30 +35,40 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Move(float move) {
+		if (move == 0)
+			return;
 		rigidBody.velocity = new Vector2 (move*speed, rigidBody.velocity.y);
 
-		if (move > 0 && !facingRight)
-		{
-			Flip();
-		}
-		else if (move < 0 && facingRight)
-		{
-			Flip();
+		if (move > 0 != facingRight) {
+			Flip ();
 		}
 	}
 
-	void Flip()
-	{
-		// Switch the way the player is labelled as facing.
+	public void Attack() {
+		anim.SetTrigger ("Attack");
+	}
+
+	public void LookAt(Vector3 position) {
+		if (facingRight != position.x > transform.position.x) {
+			Flip ();
+		}
+	}
+
+	void Flip() {
 		facingRight = !facingRight;
-		
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
 
+		if (puppet) {
+			puppet.flip = !puppet.flip;
+		} else {
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
+		}
+	}
+	
 	void OnStep() {
+		if (!audioSource)
+			return;
 		AudioClip audioClip = steps[Random.Range (0, steps.Length)];
 		audioSource.PlayOneShot (audioClip);
 	}
