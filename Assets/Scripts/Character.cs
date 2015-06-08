@@ -9,6 +9,7 @@ public class Character : MonoBehaviour {
 	public float health = 100f;
 	public bool enemy = false;
 	public CircleCollider2D attackCollider;
+	public bool dead = false;
 
 	Animator anim;
 	Rigidbody2D rigidBody;
@@ -57,6 +58,20 @@ public class Character : MonoBehaviour {
 		}
 	}
 
+	public void TakeDamage(float damage, Character originator) {
+		if (dead)
+			return;
+
+		LookAt (originator.gameObject.transform.position);
+		health -= damage;
+		if (health <= 0) {
+			dead = true;
+			anim.SetTrigger ("Death");
+		} else {
+			anim.SetTrigger ("TakeDamage");
+		}
+	}
+
 	void Flip() {
 		facingRight = !facingRight;
 
@@ -91,7 +106,7 @@ public class Character : MonoBehaviour {
 				continue;
 			}
 			
-			targetCharacter.health -= 10;
+			targetCharacter.TakeDamage(10, this);
 			break;
 		}
 	}

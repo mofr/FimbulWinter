@@ -9,11 +9,13 @@ public class AIController : MonoBehaviour {
 	Character character;
 	float move = 0;
 	GameObject player;
+	Character playerCharacter;
 	Vector3 startPos;
 	
 	void Start () {
 		character = GetComponent<Character>();
 		player = GameObject.FindWithTag("Player");
+		playerCharacter = player.GetComponent<Character> ();
 		startPos = transform.position;
 
 		StartCoroutine ("Patrol");
@@ -25,12 +27,11 @@ public class AIController : MonoBehaviour {
 	}
 
 	IEnumerator Patrol() {
-		move = -1f;
 		while (true) {
+			move = Mathf.Sign(startPos.x - transform.position.x);
 			yield return new WaitForSeconds (Random.Range (1.0f, 3.0f));
 			move = 0;
 			yield return new WaitForSeconds (Random.Range (0.7f, 2.0f));
-			move = Mathf.Sign(startPos.x - transform.position.x);
 		}
 	}
 
@@ -48,7 +49,7 @@ public class AIController : MonoBehaviour {
 	}
 
 	IEnumerator Fight() {
-		while (true) {
+		while (!playerCharacter.dead) {
 			float distance = (transform.position - player.transform.position).magnitude;
 			float diffX = player.transform.position.x - transform.position.x;
 
@@ -62,5 +63,7 @@ public class AIController : MonoBehaviour {
 				yield return new WaitForSeconds(0.2f);
 			}
 		}
+
+		StartCoroutine ("Patrol");
 	}
 }

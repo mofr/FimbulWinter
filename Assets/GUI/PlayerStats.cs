@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour {
 
 	void LateUpdate () {
 		Vector3 scale = healthBar.transform.localScale;
-		scale.x = character.health / 100f;
+		scale.x = Mathf.Clamp (character.health / 100f, 0f, 1f);
 		healthBar.transform.localScale = scale;
 	}
 }
