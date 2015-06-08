@@ -323,6 +323,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &135928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 454504}
+  - 58: {fileID: 5849758}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &137254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1485,7 @@ Transform:
   - {fileID: 419768}
   - {fileID: 423420}
   - {fileID: 426966}
+  - {fileID: 454504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &440446
@@ -1557,6 +1574,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477070}
   m_RootOrder: 4
+--- !u!4 &454504
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .899999976, y: .800000012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 440258}
+  m_RootOrder: 17
 --- !u!4 &456488
 Transform:
   m_ObjectHideFlags: 1
@@ -1943,6 +1972,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: .5}
   serializedVersion: 2
   m_Radius: .5
+--- !u!58 &5849758
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135928}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .5
 --- !u!95 &9525594
 Animator:
   serializedVersion: 3
@@ -2002,6 +2044,9 @@ MonoBehaviour:
   speed: 1.20000005
   jumpForce: 350
   steps: []
+  health: 100
+  enemy: 1
+  attackCollider: {fileID: 5849758}
 --- !u!114 &11417800
 MonoBehaviour:
   m_ObjectHideFlags: 1

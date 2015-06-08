@@ -45,6 +45,7 @@ GameObject:
   - 58: {fileID: 5832634}
   - 114: {fileID: 11427852}
   - 82: {fileID: 8216066}
+  - 61: {fileID: 6106826}
   m_Layer: 0
   m_Name: Akke
   m_TagString: Player
@@ -244,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.83899999, y: -3.37599993, z: 0}
+  m_LocalPosition: {x: -.230000004, y: -1.25, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children:
   - {fileID: 457036}
@@ -408,6 +409,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: .610000014}
   serializedVersion: 2
   m_Radius: .620000005
+--- !u!61 &6106826
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102988}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 2.17000008}
+  serializedVersion: 2
+  m_Size: {x: 1.20000005, y: 2.93000007}
 --- !u!82 &8216066
 AudioSource:
   m_ObjectHideFlags: 1
@@ -512,6 +526,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e59db29529167a24085b943e516652a5, type: 3}
   - {fileID: 8300000, guid: 04e4b2da3fd80594a90b93920db16f61, type: 3}
   - {fileID: 8300000, guid: 327e1ce63b58f20459875995adb26c99, type: 3}
+  health: 100
+  enemy: 0
+  attackCollider: {fileID: 0}
 --- !u!212 &21202834
 SpriteRenderer:
   m_ObjectHideFlags: 1

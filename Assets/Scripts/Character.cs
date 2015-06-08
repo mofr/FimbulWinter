@@ -6,6 +6,9 @@ public class Character : MonoBehaviour {
 	public float speed = 2f;
 	public float jumpForce = 350f;
 	public AudioClip[] steps;
+	public float health = 100f;
+	public bool enemy = false;
+	public CircleCollider2D attackCollider;
 
 	Animator anim;
 	Rigidbody2D rigidBody;
@@ -75,5 +78,21 @@ public class Character : MonoBehaviour {
 
 	void OnJump() {
 		rigidBody.AddForce(new Vector2(0f, jumpForce));
+	}
+
+	void OnAttack() {
+		Vector2 center = new Vector2(attackCollider.gameObject.transform.position.x, attackCollider.gameObject.transform.position.y);
+		center += attackCollider.offset;
+		Collider2D[] targets = Physics2D.OverlapCircleAll(center, attackCollider.radius);
+		GameObject player = GameObject.FindWithTag ("Player");
+		foreach(Collider2D collider in targets) {
+			Character targetCharacter = collider.gameObject.GetComponent<Character>();
+			if(targetCharacter == null || targetCharacter.enemy == enemy) {
+				continue;
+			}
+			
+			targetCharacter.health -= 10;
+			break;
+		}
 	}
 }
