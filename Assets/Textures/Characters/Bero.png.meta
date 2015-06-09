@@ -1,0 +1,264 @@
+fileFormatVersion: 2
+guid: 58fcc9f9872791b468b703ab0fbe25c3
+timeCreated: 1433868516
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BeroShoulderB
+    21300002: BeroHead
+    21300004: BeroShoulderA
+    21300006: Bero_3
+    21300008: BeroArmB
+    21300010: BeroNeck
+    21300012: BeroArmA
+    21300014: BeroElbowB
+    21300016: BeroChest
+    21300018: BeroElbowA
+    21300020: Bero_10
+    21300022: BeroHipB
+    21300024: BeroHipA
+    21300026: BeroHandB
+    21300028: BeroWaist
+    21300030: BeroLegB
+    21300032: BeroLegA
+    21300034: BeroFootB
+    21300036: BeroFootA
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BeroShoulderB
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 438
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroHead
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 438
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroShoulderA
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 431
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bero_3
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 421
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroArmB
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 356
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroNeck
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 385
+        width: 29
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroArmA
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 356
+        width: 29
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroElbowB
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 286
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroChest
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 281
+        width: 59
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroElbowA
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 285
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bero_10
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 344
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroHipB
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 166
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroHipA
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 168
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroHandB
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 187
+        width: 90
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroWaist
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 194
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroLegB
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 86
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroLegA
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 81
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroFootB
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 19
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BeroFootA
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 16
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
