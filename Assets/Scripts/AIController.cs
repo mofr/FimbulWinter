@@ -66,4 +66,9 @@ public class AIController : MonoBehaviour {
 
 		StartCoroutine ("Patrol");
 	}
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere (transform.position, agroDistance);
+	}
 }

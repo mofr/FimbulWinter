@@ -46,7 +46,7 @@ GameObject:
   - 114: {fileID: 11427852}
   - 82: {fileID: 8216066}
   - 61: {fileID: 6106826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Akke
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.79431272, y: -2.11344528, z: 0}
+  m_LocalPosition: {x: 6.80412483, y: 2.09342241, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children:
   - {fileID: 420620}
