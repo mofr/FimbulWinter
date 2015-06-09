@@ -8,8 +8,9 @@ public class Character : MonoBehaviour {
 	public AudioClip[] steps;
 	public float health = 100f;
 	public bool enemy = false;
-	public CircleCollider2D attackCollider;
 	public bool dead = false;
+	public float attackDamage = 10f;
+	public CircleCollider2D attackCollider;
 
 	Animator anim;
 	Rigidbody2D rigidBody;
@@ -39,7 +40,7 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Move(float move) {
-		if (move == 0)
+		if (move == 0 || dead)
 			return;
 		rigidBody.velocity = new Vector2 (move*speed, rigidBody.velocity.y);
 
@@ -99,14 +100,13 @@ public class Character : MonoBehaviour {
 		Vector2 center = new Vector2(attackCollider.gameObject.transform.position.x, attackCollider.gameObject.transform.position.y);
 		center += attackCollider.offset;
 		Collider2D[] targets = Physics2D.OverlapCircleAll(center, attackCollider.radius);
-		GameObject player = GameObject.FindWithTag ("Player");
 		foreach(Collider2D collider in targets) {
 			Character targetCharacter = collider.gameObject.GetComponent<Character>();
 			if(targetCharacter == null || targetCharacter.enemy == enemy) {
 				continue;
 			}
 			
-			targetCharacter.TakeDamage(10, this);
+			targetCharacter.TakeDamage(attackDamage, this);
 			break;
 		}
 	}

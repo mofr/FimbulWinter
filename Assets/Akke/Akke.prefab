@@ -181,6 +181,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &179364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 420620}
+  - 58: {fileID: 5853336}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &182862
 GameObject:
   m_ObjectHideFlags: 1
@@ -245,11 +261,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.230000004, y: -1.25, z: 0}
+  m_LocalPosition: {x: 3.79431272, y: -2.11344528, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children:
+  - {fileID: 420620}
   - {fileID: 457036}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &420620
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .74000001, y: 1.26999998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 418820}
   m_RootOrder: 0
 --- !u!4 &422948
 Transform:
@@ -303,7 +332,7 @@ Transform:
   - {fileID: 469500}
   - {fileID: 400994}
   m_Father: {fileID: 418820}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &469500
 Transform:
   m_ObjectHideFlags: 1
@@ -409,6 +438,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: .610000014}
   serializedVersion: 2
   m_Radius: .620000005
+--- !u!58 &5853336
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179364}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .870000005
 --- !u!61 &6106826
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -528,7 +570,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 327e1ce63b58f20459875995adb26c99, type: 3}
   health: 100
   enemy: 0
-  attackCollider: {fileID: 0}
+  dead: 0
+  attackDamage: 10
+  attackCollider: {fileID: 5853336}
 --- !u!212 &21202834
 SpriteRenderer:
   m_ObjectHideFlags: 1

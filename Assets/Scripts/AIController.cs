@@ -27,7 +27,7 @@ public class AIController : MonoBehaviour {
 	}
 
 	IEnumerator Patrol() {
-		while (true) {
+		while (!character.dead) {
 			move = Mathf.Sign(startPos.x - transform.position.x);
 			yield return new WaitForSeconds (Random.Range (1.0f, 3.0f));
 			move = 0;
@@ -36,7 +36,7 @@ public class AIController : MonoBehaviour {
 	}
 
 	IEnumerator SearchPlayer() {
-		while (true) {
+		while (!character.dead) {
 			float distance = (transform.position - player.transform.position).magnitude;
 			if(distance < agroDistance) {
 				StopCoroutine("Patrol");
@@ -49,7 +49,7 @@ public class AIController : MonoBehaviour {
 	}
 
 	IEnumerator Fight() {
-		while (!playerCharacter.dead) {
+		while (!playerCharacter.dead && !character.dead) {
 			float distance = (transform.position - player.transform.position).magnitude;
 			float diffX = player.transform.position.x - transform.position.x;
 
