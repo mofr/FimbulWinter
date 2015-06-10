@@ -97,8 +97,7 @@ public class Character : MonoBehaviour {
 	}
 
 	void OnAttack() {
-		Vector2 center = new Vector2(attackCollider.gameObject.transform.position.x, attackCollider.gameObject.transform.position.y);
-		center += attackCollider.offset;
+		Vector2 center = new Vector2(attackCollider.bounds.center.x, attackCollider.bounds.center.y);
 		Collider2D[] targets = Physics2D.OverlapCircleAll(center, attackCollider.radius);
 		foreach(Collider2D collider in targets) {
 			Character targetCharacter = collider.gameObject.GetComponent<Character>();
