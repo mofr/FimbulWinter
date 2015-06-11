@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 58fcc9f9872791b468b703ab0fbe25c3
-timeCreated: 1433868516
+timeCreated: 1434006905
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -251,12 +251,12 @@ TextureImporter:
     - name: BeroFootA
       rect:
         serializedVersion: 2
-        x: 315
-        y: 16
-        width: 24
-        height: 21
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 314
+        y: 17
+        width: 26
+        height: 20
+      alignment: 9
+      pivot: {x: .36931318, y: .506005466}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

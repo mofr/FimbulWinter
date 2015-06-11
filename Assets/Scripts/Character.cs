@@ -11,14 +11,17 @@ public class Character : MonoBehaviour {
 	public bool dead = false;
 	public float attackDamage = 10f;
 	public CircleCollider2D attackCollider;
+	public bool initialRight = true;
 
 	Animator anim;
 	Rigidbody2D rigidBody;
 	AudioSource audioSource;
 	Puppet2D_GlobalControl puppet;
-	bool facingRight = true;
+	bool facingRight;
 
 	void Awake() {
+		facingRight = initialRight;
+		
 		anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody2D>();
 		audioSource = GetComponent<AudioSource>();
@@ -30,7 +33,7 @@ public class Character : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x));
+		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/speed);
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
 		anim.SetBool ("Grounded", Mathf.Abs(rigidBody.velocity.y) < 0.1);
 	}
