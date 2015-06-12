@@ -8,6 +8,8 @@ public class Talkable : MonoBehaviour {
 	public GameObject bubblePrefab;
 	public UnityEvent action;
 	public Sprite portrait;
+
+	[TextArea(2,10)]
 	public string[] phrases = {
 		"Привет!",
 	};
