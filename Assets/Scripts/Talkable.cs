@@ -7,6 +7,7 @@ public class Talkable : MonoBehaviour {
 	
 	public GameObject bubblePrefab;
 	public UnityEvent action;
+	public Sprite portrait;
 	public string[] phrases = {
 		"Привет!",
 	};
@@ -40,7 +41,8 @@ public class Talkable : MonoBehaviour {
 		PlayerInput.instance.enabled = false;
 		
 		currentPhrase = 0;
-		bubble.GetComponent<SpeechBubble>().phrase.text = phrases[currentPhrase];
+		bubble.GetComponent<SpeechBubble> ().phrase.text = phrases[currentPhrase];
+		bubble.GetComponent<SpeechBubble> ().portrait.sprite = portrait;
 		
 		UsageHint.Hide();
 	}
