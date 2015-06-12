@@ -69,8 +69,7 @@ public class Character : MonoBehaviour {
 		LookAt (originator.gameObject.transform.position);
 		health -= damage;
 		if (health <= 0) {
-			dead = true;
-			anim.SetTrigger ("Death");
+			Kill();
 		} else {
 			anim.SetTrigger ("TakeDamage");
 		}
@@ -86,6 +85,12 @@ public class Character : MonoBehaviour {
 			theScale.x *= -1;
 			transform.localScale = theScale;
 		}
+	}
+
+	void Kill() {
+		dead = true;
+		anim.SetTrigger ("Death");
+		gameObject.layer = LayerMask.NameToLayer("Dead");
 	}
 	
 	void OnStep() {
