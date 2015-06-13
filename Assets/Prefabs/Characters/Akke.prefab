@@ -46,9 +46,10 @@ GameObject:
   - 114: {fileID: 11427852}
   - 82: {fileID: 8216066}
   - 61: {fileID: 6106826}
+  - 114: {fileID: 11420510}
   m_Layer: 9
   m_Name: Akke
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.80412483, y: 2.09342241, z: 0}
+  m_LocalPosition: {x: 25.0599995, y: -1.78999996, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children:
   - {fileID: 420620}
@@ -550,6 +551,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11420510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86547efa42ba594d9b54eb26649c028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agroDistance: 5
+  attackDistance: 1.20000005
 --- !u!114 &11427852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -561,18 +575,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fda296d63abc9428b9b7d5f538fb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  enemy: 1
+  initialRight: 1
+  walkSpeed: 2
+  runSpeed: 6
   jumpForce: 300
-  steps:
-  - {fileID: 8300000, guid: 37ef855941d895749841a7bec32603f2, type: 3}
-  - {fileID: 8300000, guid: e59db29529167a24085b943e516652a5, type: 3}
-  - {fileID: 8300000, guid: 04e4b2da3fd80594a90b93920db16f61, type: 3}
-  - {fileID: 8300000, guid: 327e1ce63b58f20459875995adb26c99, type: 3}
-  health: 100
-  enemy: 0
+  health: 30
   dead: 0
   attackDamage: 10
   attackCollider: {fileID: 5853336}
+  recoveryTime: 1
 --- !u!212 &21202834
 SpriteRenderer:
   m_ObjectHideFlags: 1

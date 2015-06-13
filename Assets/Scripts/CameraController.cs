@@ -26,6 +26,11 @@ public class CameraController : MonoBehaviour {
 		if (!target) {
 			target = GameObject.FindWithTag("Player");
 		}
+
+		Vector3 pos = transform.position;
+		pos.x = target.transform.position.x;
+		pos.y = target.transform.position.y;
+		transform.position = pos;
 	}
 
 	void LateUpdate () {
