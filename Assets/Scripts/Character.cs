@@ -3,15 +3,19 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
-	public float speed = 2f;
-	public float jumpForce = 350f;
-	public AudioClip[] steps;
-	public float health = 100f;
 	public bool enemy = false;
+	public bool initialRight = true;
+
+	[Header("Locomotion")]
+	public float walkSpeed = 2f;
+	public float runSpeed = 6f;
+	public float jumpForce = 350f;
+
+	[Header("Battle")]
+	public float health = 100f;
 	public bool dead = false;
 	public float attackDamage = 10f;
 	public CircleCollider2D attackCollider;
-	public bool initialRight = true;
 
 	Animator anim;
 	Rigidbody2D rigidBody;
@@ -33,7 +37,7 @@ public class Character : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/speed);
+		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/runSpeed);
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
 		anim.SetBool ("Grounded", Mathf.Abs(rigidBody.velocity.y) < 0.1);
 	}
@@ -42,10 +46,11 @@ public class Character : MonoBehaviour {
 		anim.SetTrigger ("Jump");
 	}
 
-	public void Move(float move) {
+	public void Move(float move, bool run = false) {
 		if (move == 0 || dead)
 			return;
-		rigidBody.velocity = new Vector2 (move*speed, rigidBody.velocity.y);
+		float moveSpeed = run ? runSpeed : walkSpeed;
+		rigidBody.velocity = new Vector2 (move*moveSpeed, rigidBody.velocity.y);
 
 		if (move > 0 != facingRight) {
 			Flip ();
@@ -96,8 +101,6 @@ public class Character : MonoBehaviour {
 	void OnStep() {
 		if (!audioSource)
 			return;
-		AudioClip audioClip = steps[Random.Range (0, steps.Length)];
-		audioSource.PlayOneShot (audioClip);
 	}
 
 	void OnJump() {
@@ -109,7 +112,7 @@ public class Character : MonoBehaviour {
 		Collider2D[] targets = Physics2D.OverlapCircleAll(center, attackCollider.radius);
 		foreach(Collider2D collider in targets) {
 			Character targetCharacter = collider.gameObject.GetComponent<Character>();
-			if(targetCharacter == null || targetCharacter.enemy == enemy) {
+			if(targetCharacter == null || targetCharacter.enemy == enemy || targetCharacter.dead) {
 				continue;
 			}
 			

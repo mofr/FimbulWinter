@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
 		}
 		
 		if (Input.GetButton ("Horizontal")) {
-			character.Move (Input.GetAxis("Horizontal"));
+			character.Move (Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift));
 		}
 
 		if (Input.GetButtonDown ("Fire1")) {

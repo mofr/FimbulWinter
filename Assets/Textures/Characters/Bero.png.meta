@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 58fcc9f9872791b468b703ab0fbe25c3
-timeCreated: 1434006905
+timeCreated: 1434125056
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -95,8 +95,8 @@ TextureImporter:
         y: 431
         width: 42
         height: 37
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .143829346, y: .650169551}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Bero_3
       rect:
