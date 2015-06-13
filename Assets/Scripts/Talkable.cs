@@ -2,19 +2,26 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
+using System;
 
 public class Talkable : MonoBehaviour {
 	
 	public GameObject bubblePrefab;
+	public bool autoStart = false;
 	public UnityEvent action;
-	public Sprite portrait;
 
-	[TextArea(2,10)]
-	public string[] phrases = {
-		"Привет!",
-	};
+	[Serializable]
+	public class Phrase
+	{
+		public Sprite portrait;
 
-	GameObject bubble;
+		[TextArea(2,10)]
+		public string text = "Привет!";
+	}
+
+	public Phrase[] phrases;
+
+	SpeechBubble bubble;
 	bool hot = false;
 	bool opened = false;
 	int currentPhrase;
@@ -26,7 +33,8 @@ public class Talkable : MonoBehaviour {
 				if(currentPhrase >= phrases.Length) {
 					EndConversation();
 				} else {
-					bubble.GetComponent<SpeechBubble>().phrase.text = phrases[currentPhrase];
+					bubble.phrase.text = phrases[currentPhrase].text;
+					bubble.portrait.sprite = phrases[currentPhrase].portrait;
 				}
 			}
 		} else if (hot) {
@@ -36,22 +44,22 @@ public class Talkable : MonoBehaviour {
 		}
 	}
 
-	void StartConversation() {
+	public void StartConversation() {
 		opened = true;
-		bubble = Instantiate (bubblePrefab);
+		bubble = Instantiate (bubblePrefab).GetComponent<SpeechBubble>();
 		bubble.transform.SetParent(gameObject.transform, false);
 		PlayerInput.instance.enabled = false;
 		
 		currentPhrase = 0;
-		bubble.GetComponent<SpeechBubble> ().phrase.text = phrases[currentPhrase];
-		bubble.GetComponent<SpeechBubble> ().portrait.sprite = portrait;
+		bubble.phrase.text = phrases[currentPhrase].text;
+		bubble.portrait.sprite = phrases[currentPhrase].portrait;
 		
 		UsageHint.Hide();
 	}
 
 	void EndConversation() {
 		opened = false;
-		Destroy (bubble);
+		Destroy (bubble.gameObject);
 		PlayerInput.instance.enabled = true;
 
 		action.Invoke ();
@@ -59,8 +67,12 @@ public class Talkable : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "Player") {
-			hot = true;
-			UsageHint.Show();
+			if(autoStart) {
+				StartConversation();
+			} else {
+				hot = true;
+				UsageHint.Show();
+			}
 		}
 	}
 
