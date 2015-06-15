@@ -421,7 +421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &523790094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -716,6 +716,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1011907961
 MonoBehaviour:
@@ -883,8 +884,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1049,15 +1049,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455938, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 1.68609304e-07
+      value: 1.6860082e-07
       objectReference: {fileID: 0}
     - target: {fileID: 455938, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 2.86265989e-09
+      value: 1.54559698e-09
       objectReference: {fileID: 0}
     - target: {fileID: 455938, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -.0117961839
+      value: -.0118009839
       objectReference: {fileID: 0}
     - target: {fileID: 415706, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1077,19 +1077,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436750, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 1.24437392e-07
+      value: 1.24437349e-07
       objectReference: {fileID: 0}
     - target: {fileID: 436750, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1.83243341e-08
+      value: 1.83246076e-08
       objectReference: {fileID: 0}
     - target: {fileID: 436750, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .20684053
+      value: .206838399
       objectReference: {fileID: 0}
     - target: {fileID: 436750, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .97837466
+      value: .978375137
       objectReference: {fileID: 0}
     - target: {fileID: 487950, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1109,19 +1109,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443784, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 2.52872042e-07
+      value: 2.52873804e-07
       objectReference: {fileID: 0}
     - target: {fileID: 443784, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 3.377298e-09
+      value: 2.06036521e-09
       objectReference: {fileID: 0}
     - target: {fileID: 443784, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -.0195907988
+      value: -.0195977613
       objectReference: {fileID: 0}
     - target: {fileID: 443784, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.999808133
+      value: -.999808013
       objectReference: {fileID: 0}
     - target: {fileID: 420138, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1281,7 +1281,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455938, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .999930441
+      value: .999930382
       objectReference: {fileID: 0}
     - target: {fileID: 427250, guid: cbddf9e9b8e0b3646bd8ffa0f5d4f300, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1734,8 +1734,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

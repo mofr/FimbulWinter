@@ -101,7 +101,7 @@ public class Puppet2D_BakeAnimation : MonoBehaviour {
 			newClip.wrapMode = clip.wrapMode;
 			AnimationClipSettings animClipSettings = new AnimationClipSettings();
 			animClipSettings.stopTime = clip.length;
-			#if UNITY_5_0
+			#if UNITY_5_1
 			newClip.legacy = false;
 			#else
 			AnimationUtility.SetAnimationType(newClip, ModelImporterAnimationType.Generic);
@@ -370,7 +370,7 @@ public class Puppet2D_BakeAnimation : MonoBehaviour {
 	List<AnimationClip> GetAnimationLengths()
 	{
 		List<AnimationClip> animationClips = new List<AnimationClip>();
-		#if UNITY_5_0
+		#if UNITY_5_1
 		RuntimeAnimatorController controller = transform.GetComponent<Animator>().runtimeAnimatorController;
 
 		for (int i = 0; i < controller.animationClips.Length; i++)				
@@ -390,9 +390,9 @@ public class Puppet2D_BakeAnimation : MonoBehaviour {
 		return animationClips;
 		#else
 		RuntimeAnimatorController controller = transform.GetComponent<Animator>().runtimeAnimatorController;
-		if (controller is UnityEditorInternal.AnimatorController)
+		if (controller is UnityEditor.Animations.AnimatorController)
 		{
-			UnityEditorInternal.StateMachine m = ((UnityEditorInternal.AnimatorController)controller).GetLayer(0).stateMachine;
+			UnityEditor.Animations.AnimatorStateMachine m = ((UnityEditor.Animations.AnimatorController)controller).GetLayer(0).stateMachine;
 
 			for (int i = 0; i < m.stateCount; i++)
 
@@ -402,7 +402,7 @@ public class Puppet2D_BakeAnimation : MonoBehaviour {
 				if (m.GetState(i).GetMotion())
 				{
 					string path = AssetDatabase.GetAssetPath(m.GetState(i).GetMotion());
-					clip = (AnimationClip)Resources.LoadAssetAtPath(path, typeof(AnimationClip));
+					clip = (AnimationClip)AssetDatabase.LoadAssetAtPath(path, typeof(AnimationClip));
 
 					//clip = (AnimationClip)Resources.LoadAssetAtPath(_puppet2DPath+"/Animation/" + m.GetState(i).GetMotion().name + ".anim", typeof(AnimationClip));
 					animationClips.Add(clip);
