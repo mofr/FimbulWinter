@@ -53,11 +53,7 @@ public class Character : MonoBehaviour {
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/runSpeed);
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
 
-		bool prevGrounded = grounded;
 		grounded = CheckGround();
-		if (grounded != prevGrounded) {
-			Debug.Log (Physics2D.OverlapCircleAll(ground.position, 0.1f).Length);
-		}
 		anim.SetBool ("Grounded", grounded);
 
 		recoveryRemains = Mathf.Max (0, recoveryRemains-Time.deltaTime);
@@ -159,7 +155,7 @@ public class Character : MonoBehaviour {
 	}
 
 	bool CheckGround() {
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(ground.position, 0.1f);
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(ground.position, 0.1f, whatIsGround);
 		for (int i = 0; i < colliders.Length; ++i) {
 			if(colliders[i].gameObject != gameObject) {
 				return true;

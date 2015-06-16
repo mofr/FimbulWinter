@@ -37,16 +37,15 @@ public class CameraController : MonoBehaviour {
 		if (!target)
 			return;
 
-		Vector3 posNoZ = transform.position;
-		posNoZ.z = target.transform.position.z;
-			
-		Vector3 targetDirection = (target.transform.position - posNoZ);
-		Vector3 targetPos = transform.position + targetDirection.normalized * targetDirection.magnitude * interpVelocity * Time.deltaTime; 
+		Vector3 targetPos = target.transform.position; 
+		targetPos.z = transform.position.z;
 
+		//clamp targetPos to limits
 		float cameraWidth = camera.orthographicSize * camera.aspect;
 		targetPos.x = Mathf.Clamp (targetPos.x, limits.minX+cameraWidth, limits.maxX-cameraWidth);
 		targetPos.y = Mathf.Clamp (targetPos.y, limits.minY+camera.orthographicSize, limits.maxY-camera.orthographicSize);
 			
-		transform.position = Vector3.Lerp (transform.position, targetPos, 0.25f) + offset;
+		//interpolate
+		transform.position = Vector3.Lerp (transform.position, targetPos, interpVelocity * Time.deltaTime) + offset;
 	}
 }
