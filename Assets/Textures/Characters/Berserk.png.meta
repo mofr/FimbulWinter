@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: f1cbb7d2dad38fc4b8f1e17cbf13610e
+timeCreated: 1434348649
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BerserkSpriteAxe
+    21300002: BerserkSpriteHead
+    21300004: BerserkSpriteShoulder
+    21300006: BerserkSpriteNeck
+    21300008: BerserkSpriteArmA
+    21300010: BerserkSpriteArmB
+    21300012: BerserkSpriteChest
+    21300014: BerserkSpriteForearmA
+    21300016: BerserkSpriteForearmB
+    21300018: BerserkSpriteAbdomen
+    21300020: BerserkSpriteHandA
+    21300022: BerserkSpriteHipB
+    21300024: BerserkSpriteBelt
+    21300026: BerserkSpriteHipA
+    21300028: BerserkSpriteLegB
+    21300030: BerserkSpriteLegA
+    21300032: BerserkSpriteFootB
+    21300034: BerserkSpriteFootA
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BerserkSpriteAxe
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 426
+        width: 57
+        height: 68
+      alignment: 9
+      pivot: {x: .900571048, y: .432513952}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteHead
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 439
+        width: 53
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteShoulder
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 448
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteNeck
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 387
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteArmA
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 356
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteArmB
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 314
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteChest
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 300
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteForearmA
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 280
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteForearmB
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 218
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteAbdomen
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 216
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteHandA
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 218
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteHipB
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 132
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteBelt
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 125
+        width: 48
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteHipA
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 132
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteLegB
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 67
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteLegA
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 65
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteFootB
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 12
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteFootA
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 15
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

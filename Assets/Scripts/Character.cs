@@ -26,6 +26,8 @@ public class Character : MonoBehaviour {
 	bool facingRight;
 	float recoveryRemains = 0f;
 	float attackCooldown = 0f;
+	bool block = false;
+	bool grounded = false;
 
 	void Awake() {
 		facingRight = initialRight;
@@ -43,7 +45,9 @@ public class Character : MonoBehaviour {
 	void FixedUpdate () {
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/runSpeed);
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
-		anim.SetBool ("Grounded", Mathf.Abs(rigidBody.velocity.y) < 0.1);
+
+		grounded = Mathf.Abs (rigidBody.velocity.y) < 0.1;
+		anim.SetBool ("Grounded", grounded);
 
 		recoveryRemains = Mathf.Max (0, recoveryRemains-Time.deltaTime);
 		anim.SetFloat ("RecoveryRemains", recoveryRemains);
@@ -52,6 +56,8 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Jump() {
+		if (!grounded)
+			return;
 		if (IsAttacking ())
 			return;
 		if (recoveryRemains > 0)
@@ -61,6 +67,8 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Move(float move, bool run = false) {
+		if (block)
+			return;
 		if (IsAttacking ())
 			return;
 		if (recoveryRemains > 0)
@@ -86,6 +94,14 @@ public class Character : MonoBehaviour {
 		attackCooldown = attackTime;
 	}
 
+	public void Block(bool block) {
+		if (recoveryRemains > 0)
+			return;
+
+		this.block = block;
+		anim.SetBool ("Block", block);
+	}
+
 	public void LookAt(Vector3 position) {
 		if (facingRight != position.x > transform.position.x) {
 			Flip ();
@@ -94,6 +110,9 @@ public class Character : MonoBehaviour {
 
 	public void TakeDamage(float damage, Character originator) {
 		if (dead)
+			return;
+
+		if (block)
 			return;
 
 		LookAt (originator.gameObject.transform.position);
