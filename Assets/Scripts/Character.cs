@@ -10,6 +10,7 @@ public class Character : MonoBehaviour {
 	public float walkSpeed = 2f;
 	public float runSpeed = 6f;
 	public float jumpForce = 350f;
+	public LayerMask whatIsGround;
 
 	[Header("Battle")]
 	public float health = 100f;
@@ -23,6 +24,8 @@ public class Character : MonoBehaviour {
 	Rigidbody2D rigidBody;
 	AudioSource audioSource;
 	Puppet2D_GlobalControl puppet;
+	Transform ground;
+
 	bool facingRight;
 	float recoveryRemains = 0f;
 	float attackCooldown = 0f;
@@ -36,6 +39,10 @@ public class Character : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody2D>();
 		audioSource = GetComponent<AudioSource>();
 		puppet = GetComponent<Puppet2D_GlobalControl>();
+		ground = transform.Find ("Ground");
+		if (!ground) {
+			ground = transform;
+		}
 	}
 	
 	void Start () {
@@ -46,7 +53,11 @@ public class Character : MonoBehaviour {
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/runSpeed);
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
 
-		grounded = Mathf.Abs (rigidBody.velocity.y) < 0.1;
+		bool prevGrounded = grounded;
+		grounded = CheckGround();
+		if (grounded != prevGrounded) {
+			Debug.Log (Physics2D.OverlapCircleAll(ground.position, 0.1f).Length);
+		}
 		anim.SetBool ("Grounded", grounded);
 
 		recoveryRemains = Mathf.Max (0, recoveryRemains-Time.deltaTime);
@@ -145,6 +156,16 @@ public class Character : MonoBehaviour {
 
 	bool IsAttacking() {
 		return anim.GetCurrentAnimatorStateInfo (0).IsName ("Attack");
+	}
+
+	bool CheckGround() {
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(ground.position, 0.1f);
+		for (int i = 0; i < colliders.Length; ++i) {
+			if(colliders[i].gameObject != gameObject) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	void OnStep() {
