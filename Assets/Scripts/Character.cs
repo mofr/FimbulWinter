@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Character : MonoBehaviour {
 
@@ -29,7 +30,7 @@ public class Character : MonoBehaviour {
 	float attackCooldown = 0f;
 	bool block = false;
 	bool grounded = false;
-	GameObject groundedOn = null;
+	HashSet<Collider2D> groundedOn = new HashSet<Collider2D>();
 
 	void Awake() {
 		facingRight = initialRight;
@@ -151,17 +152,17 @@ public class Character : MonoBehaviour {
 		for (int i = 0; i < collision.contacts.Length; ++i) {
 			ContactPoint2D contact = collision.contacts[i];
 			if(contact.normal.y > 0) {
-				groundedOn = collision.gameObject;
-				grounded = true;
+				groundedOn.Add(collision.collider);
 			}
 		}
+
+		grounded = groundedOn.Count > 0;
 	}
 
 	void OnCollisionExit2D(Collision2D collision) {
-		if (collision.gameObject == groundedOn) {
-			groundedOn = null;
-			grounded = false;
-		}
+		groundedOn.Remove (collision.collider);
+
+		grounded = groundedOn.Count > 0;
 	}
 	
 	void OnStep() {
