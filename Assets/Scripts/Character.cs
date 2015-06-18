@@ -14,6 +14,7 @@ public class Character : MonoBehaviour {
 
 	[Header("Battle")]
 	public float health = 100f;
+	public float maxHealth = 100f;
 	public bool dead = false;
 	public float attackTime = 1f;
 	public float attackDamage = 10f;
@@ -90,6 +91,8 @@ public class Character : MonoBehaviour {
 			return;
 		if (recoveryRemains > 0)
 			return;
+		if (!grounded)
+			return;
 
 		anim.SetTrigger ("Attack");
 		attackCooldown = attackTime;
@@ -113,8 +116,9 @@ public class Character : MonoBehaviour {
 		if (dead)
 			return;
 
-		if (block)
+		if (block) {
 			return;
+		}
 
 		LookAt (originator.gameObject.transform.position);
 		health -= damage;
@@ -184,6 +188,10 @@ public class Character : MonoBehaviour {
 			}
 			
 			targetCharacter.TakeDamage(attackDamage, this);
+
+			Vector2 force = 300 * (targetCharacter.transform.position-transform.position).normalized;
+			force.y += 100;
+			targetCharacter.GetComponent<Rigidbody2D>().AddForce(force);
 			break;
 		}
 	}
