@@ -21,7 +21,6 @@ public class Character : MonoBehaviour {
 
 	Animator anim;
 	Rigidbody2D rigidBody;
-	AudioSource audioSource;
 	Puppet2D_GlobalControl puppet;
 
 	bool facingRight;
@@ -29,7 +28,7 @@ public class Character : MonoBehaviour {
 	float attackCooldown = 0f;
 	bool block = false;
 	bool grounded = false;
-	HashSet<Collider2D> groundedOn = new HashSet<Collider2D>();
+	Collider2D groundedOn;
 	Attack attack;
 
 	void Awake() {
@@ -37,7 +36,6 @@ public class Character : MonoBehaviour {
 		
 		anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody2D>();
-		audioSource = GetComponent<AudioSource>();
 		puppet = GetComponent<Puppet2D_GlobalControl>();
 
 		attack = GetComponentInChildren<Attack>();
@@ -55,6 +53,8 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Jump() {
+		if (block)
+			return;
 		if (!grounded)
 			return;
 		if (IsAttacking ())
@@ -98,6 +98,10 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Block(bool block) {
+		if (IsAttacking ())
+			return;
+		if (!grounded)
+			return;
 		if (recoveryRemains > 0)
 			return;
 
@@ -128,6 +132,12 @@ public class Character : MonoBehaviour {
 			recoveryRemains = Mathf.Max(recoveryRemains, recoveryTime);
 		}
 	}
+	
+	public void Kill() {
+		dead = true;
+		gameObject.layer = LayerMask.NameToLayer("Dead");
+		anim.SetTrigger ("Death");
+	}
 
 	void Flip() {
 		facingRight = !facingRight;
@@ -141,42 +151,31 @@ public class Character : MonoBehaviour {
 		}
 	}
 
-	void Kill() {
-		dead = true;
-		gameObject.layer = LayerMask.NameToLayer("Dead");
-		anim.SetTrigger ("Death");
-	}
-
 	bool IsAttacking() {
 		return anim.GetCurrentAnimatorStateInfo (0).IsName ("Attack");
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
+	void OnCollisionStay2D(Collision2D collision) {
 		if (collision.gameObject == gameObject)
 			return;
 
 		for (int i = 0; i < collision.contacts.Length; ++i) {
 			ContactPoint2D contact = collision.contacts[i];
 			if(contact.normal.y > 0) {
-				groundedOn.Add(collision.collider);
+				groundedOn = collision.collider;
+				grounded = true;
+				return;
 			}
 		}
 
-		grounded = groundedOn.Count > 0;
+		grounded = false;
+		groundedOn = null;
 	}
 
 	void OnCollisionExit2D(Collision2D collision) {
-		if (collision.gameObject == gameObject)
-			return;
-
-		groundedOn.Remove (collision.collider);
-
-		grounded = groundedOn.Count > 0;
-	}
-	
-	void OnStep() {
-		if (!audioSource)
-			return;
+		if (collision.collider == groundedOn) {
+			grounded = false;
+		}
 	}
 
 	void OnJump() {

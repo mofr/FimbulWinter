@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BerserkAI : MonoBehaviour
 {
+	public TriggerArea agroArea;
+
 	Character character;
 	RangedAttack attack;
 	GameObject player;
@@ -16,33 +18,20 @@ public class BerserkAI : MonoBehaviour
 		playerCharacter = player.GetComponent<Character>();
 		attack.target = player.transform;
 
-		StartCoroutine (CheckVisibility());
+		agroArea.onEnter += OnAgroAreaEnter;
+		agroArea.onExit += OnAgroAreaExit;
 	}
 
-	void Update ()
-	{
-
-	}
-
-	IEnumerator CheckVisibility() 
-	{
-		bool visible = false;
-		float agroDistance = Camera.main.orthographicSize * Camera.main.aspect;
-		while (!character.dead) {
-			bool close = (transform.position.x - player.transform.position.x) <= agroDistance;
-			if(close) {
-				if(!visible) {
-					StartCoroutine ("Attacking");
-					visible = true;
-				}
-			} else if(visible){
-				StopCoroutine ("Attacking");
-				visible = false;
-			}
-			yield return new WaitForSeconds(0.5f);
+	void OnAgroAreaEnter(Collider2D collider) {
+		if (collider.gameObject == player) {
+			StartCoroutine ("Attacking");
 		}
+	}
 
-		StopCoroutine ("Attacking");
+	void OnAgroAreaExit(Collider2D collider) {
+		if (collider.gameObject == player) {
+			StopCoroutine ("Attacking");
+		}
 	}
 
 	IEnumerator Attacking()
