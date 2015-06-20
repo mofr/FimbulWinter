@@ -191,6 +191,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 420620}
   - 58: {fileID: 5853336}
+  - 114: {fileID: 11481446}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -413,6 +414,7 @@ Transform:
   m_RootOrder: 0
 --- !u!50 &5027894
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -421,11 +423,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &5832634
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -577,14 +579,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: 1
   initialRight: 1
-  walkSpeed: 2
+  walkSpeed: 3
   runSpeed: 6
   jumpForce: 300
   health: 30
+  maxHealth: 100
   dead: 0
-  attackDamage: 10
-  attackCollider: {fileID: 5853336}
   recoveryTime: 1
+  attackTime: 1
+--- !u!114 &11481446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357fc80da3be805468ae2fe7a40edde1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!212 &21202834
 SpriteRenderer:
   m_ObjectHideFlags: 1

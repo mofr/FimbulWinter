@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454504}
   - 58: {fileID: 5849758}
+  - 114: {fileID: 11413202}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -2058,15 +2059,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: 1
   initialRight: 1
-  walkSpeed: 2
+  walkSpeed: 3
   runSpeed: 6
   jumpForce: 350
   health: 20
+  maxHealth: 100
   dead: 0
-  attackTime: 1
-  attackDamage: 10
-  attackCollider: {fileID: 5849758}
   recoveryTime: .200000003
+  attackTime: 1
+--- !u!114 &11413202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357fc80da3be805468ae2fe7a40edde1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!114 &11417800
 MonoBehaviour:
   m_ObjectHideFlags: 1

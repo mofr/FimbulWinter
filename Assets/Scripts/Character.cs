@@ -16,10 +16,8 @@ public class Character : MonoBehaviour {
 	public float health = 100f;
 	public float maxHealth = 100f;
 	public bool dead = false;
-	public float attackTime = 1f;
-	public float attackDamage = 10f;
-	public CircleCollider2D attackCollider;
 	public float recoveryTime = 1f;
+	public float attackTime = 1f;
 
 	Animator anim;
 	Rigidbody2D rigidBody;
@@ -32,6 +30,7 @@ public class Character : MonoBehaviour {
 	bool block = false;
 	bool grounded = false;
 	HashSet<Collider2D> groundedOn = new HashSet<Collider2D>();
+	Attack attack;
 
 	void Awake() {
 		facingRight = initialRight;
@@ -40,10 +39,8 @@ public class Character : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody2D>();
 		audioSource = GetComponent<AudioSource>();
 		puppet = GetComponent<Puppet2D_GlobalControl>();
-	}
-	
-	void Start () {
 
+		attack = GetComponentInChildren<Attack>();
 	}
 
 	void FixedUpdate () {
@@ -87,6 +84,8 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Attack() {
+		if (block)
+			return;
 		if (attackCooldown > 0)
 			return;
 		if (recoveryRemains > 0)
@@ -153,6 +152,9 @@ public class Character : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.gameObject == gameObject)
+			return;
+
 		for (int i = 0; i < collision.contacts.Length; ++i) {
 			ContactPoint2D contact = collision.contacts[i];
 			if(contact.normal.y > 0) {
@@ -164,6 +166,9 @@ public class Character : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D(Collision2D collision) {
+		if (collision.gameObject == gameObject)
+			return;
+
 		groundedOn.Remove (collision.collider);
 
 		grounded = groundedOn.Count > 0;
@@ -179,20 +184,6 @@ public class Character : MonoBehaviour {
 	}
 
 	void OnAttack() {
-		Vector2 center = new Vector2(attackCollider.bounds.center.x, attackCollider.bounds.center.y);
-		Collider2D[] targets = Physics2D.OverlapCircleAll(center, attackCollider.radius);
-		foreach(Collider2D collider in targets) {
-			Character targetCharacter = collider.gameObject.GetComponent<Character>();
-			if(targetCharacter == null || targetCharacter.enemy == enemy || targetCharacter.dead) {
-				continue;
-			}
-			
-			targetCharacter.TakeDamage(attackDamage, this);
-
-			Vector2 force = 300 * (targetCharacter.transform.position-transform.position).normalized;
-			force.y += 100;
-			targetCharacter.GetComponent<Rigidbody2D>().AddForce(force);
-			break;
-		}
+		attack.Perform ();
 	}
 }

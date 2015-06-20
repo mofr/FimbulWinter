@@ -53,8 +53,10 @@ public class Talkable : MonoBehaviour {
 		currentPhrase = 0;
 		bubble.phrase.text = phrases[currentPhrase].text;
 		bubble.portrait.sprite = phrases[currentPhrase].portrait;
-		
-		UsageHint.Hide();
+
+		if (!autoStart) {
+			UsageHint.Hide ();
+		}
 	}
 
 	void EndConversation() {
@@ -78,8 +80,10 @@ public class Talkable : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D collider) {
 		if (collider.tag == "Player") {
-			hot = false;
-			UsageHint.Hide();
+			if(!autoStart) {
+				hot = false;
+				UsageHint.Hide();
+			}
 		}
 	}
 }
