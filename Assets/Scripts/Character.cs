@@ -29,6 +29,8 @@ public class Character : MonoBehaviour {
 	bool block = false;
 	bool grounded = false;
 	Collider2D groundedOn;
+	Collider2D rightWall;
+	Collider2D leftWall;
 	Attack attack;
 
 	void Awake() {
@@ -74,9 +76,13 @@ public class Character : MonoBehaviour {
 			return;
 		if (move == 0 || dead)
 			return;
+		if (rightWall && move > 0)
+			return;
+		if (leftWall && move < 0)
+			return;
 
-		float moveSpeed = run ? runSpeed : walkSpeed;
-		rigidBody.velocity = new Vector2 (move*moveSpeed, rigidBody.velocity.y);
+		float speed = run ? runSpeed : walkSpeed;
+		rigidBody.velocity = new Vector2 (move * speed, rigidBody.velocity.y);
 
 		if (move > 0 != facingRight) {
 			Flip ();
@@ -159,22 +165,41 @@ public class Character : MonoBehaviour {
 		if (collision.gameObject == gameObject)
 			return;
 
+		if (collision.collider == rightWall) {
+			rightWall = null;
+		}
+
+		if (collision.collider == leftWall) {
+			leftWall = null;
+		}
+
 		for (int i = 0; i < collision.contacts.Length; ++i) {
 			ContactPoint2D contact = collision.contacts[i];
 			if(contact.normal.y > 0) {
 				groundedOn = collision.collider;
 				grounded = true;
-				return;
+			}
+			if(Mathf.Abs(contact.normal.x) > Mathf.Abs (contact.normal.y)){
+				if(contact.normal.x < 0) {
+					rightWall = collision.collider;
+				}
+				if(contact.normal.x > 0) {
+					leftWall = collision.collider;
+				}
 			}
 		}
-
-		grounded = false;
-		groundedOn = null;
 	}
 
 	void OnCollisionExit2D(Collision2D collision) {
 		if (collision.collider == groundedOn) {
 			grounded = false;
+			groundedOn = null;
+		}
+		if (collision.collider == rightWall) {
+			rightWall = null;
+		}
+		if (collision.collider == leftWall) {
+			leftWall = null;
 		}
 	}
 

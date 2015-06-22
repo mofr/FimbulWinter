@@ -24,7 +24,7 @@ public class PlayerInput : MonoBehaviour
 		}
 	}
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		if (Input.GetButtonDown ("Jump")) {
 			character.Jump ();
