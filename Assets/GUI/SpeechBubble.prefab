@@ -280,8 +280,8 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingLayerID: 1089720049
-  m_SortingOrder: 1
+  m_SortingLayerID: 1486188735
+  m_SortingOrder: 0
 --- !u!224 &22409702
 RectTransform:
   m_ObjectHideFlags: 1
@@ -377,7 +377,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
+      value: 1486188735
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174984}

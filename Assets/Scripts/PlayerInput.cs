@@ -7,6 +7,8 @@ public class PlayerInput : MonoBehaviour
 	Character character;
 
 	public static PlayerInput instance;
+	static int characterLayer = LayerMask.NameToLayer("Characters");
+	static int platformsLayer = LayerMask.NameToLayer("Platform");
 
 	void Awake() {
 		instance = this;
@@ -26,8 +28,15 @@ public class PlayerInput : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+		bool slipOffPlatforms = Input.GetButton ("Vertical") && Input.GetAxis ("Vertical") < 0;
+		Physics2D.IgnoreLayerCollision (characterLayer, platformsLayer, slipOffPlatforms);
+
 		if (Input.GetButtonDown ("Jump")) {
-			character.Jump ();
+			if(slipOffPlatforms) {
+				character.SlipOffPlatform();
+			} else {
+				character.Jump ();
+			}
 		}
 		
 		if (Input.GetButton ("Horizontal")) {

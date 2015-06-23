@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 441406}
   - 68: {fileID: 6863656}
   - 251: {fileID: 25129330}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Floor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,9 +41,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429418}
-  - 68: {fileID: 6868996}
   - 251: {fileID: 25190774}
-  m_Layer: 0
+  - 68: {fileID: 6842066}
+  m_Layer: 13
   m_Name: Floor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.5799999, y: 3.64032912, z: 0}
+  m_LocalPosition: {x: 15.8400002, y: 3.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 441406}
@@ -71,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.129999995, y: -1.00999999, z: 0}
+  m_LocalScale: {x: 3.43406272, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404918}
   m_RootOrder: 1
@@ -88,6 +88,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 404918}
   m_RootOrder: 0
+--- !u!68 &6842066
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182216}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -.5, y: 0}
+  - {x: .5, y: 0}
 --- !u!68 &6863656
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -102,20 +116,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.21885872, y: 0}
   - {x: 1.11366081, y: 0}
---- !u!68 &6868996
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182216}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -1.83365154, y: -.980569601}
-  - {x: 1.57942963, y: -.998728275}
 --- !u!212 &21234588
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -149,7 +149,7 @@ PlatformEffector2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129320}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -164,7 +164,7 @@ PlatformEffector2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182216}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295

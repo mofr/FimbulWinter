@@ -7,16 +7,7 @@ public class CameraController : MonoBehaviour {
 	public GameObject target;
 	public float interpVelocity = 5f;
 	public Vector2 offset;
-
-	[Serializable]
-	public class Limits {
-		public float minX = -9.6f;
-		public float maxX = 9.6f;
-		public float minY = -5.4f;
-		public float maxY = 5.4f;
-	}
-
-	public Limits limits;
+	public CameraLimits limits;
 
 	Camera camera;
 
@@ -28,6 +19,13 @@ public class CameraController : MonoBehaviour {
 		}
 
 		transform.position = CalcTargetPos();
+	}
+
+	public void SetLimits(CameraLimits limits) {
+		if (this.limits != limits) {
+			this.limits = limits;
+			transform.position = CalcTargetPos ();
+		}
 	}
 
 	void LateUpdate () {
@@ -46,11 +44,5 @@ public class CameraController : MonoBehaviour {
 		targetPos.y = Mathf.Clamp (targetPos.y, limits.minY+camera.orthographicSize, limits.maxY-camera.orthographicSize);
 
 		return targetPos;
-	}
-
-	void OnDrawGizmos() {
-		Gizmos.color = Color.cyan;
-		Gizmos.DrawWireCube (new Vector2((limits.maxX+limits.minX)/2, (limits.maxY+limits.minY)/2), 
-		                     new Vector2(limits.maxX-limits.minX, limits.maxY-limits.minY));
 	}
 }

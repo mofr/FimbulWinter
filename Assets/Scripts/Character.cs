@@ -54,6 +54,15 @@ public class Character : MonoBehaviour {
 		attackCooldown = Mathf.Max (0, attackCooldown-Time.deltaTime);
 	}
 
+	public void SlipOffPlatform() {
+		if (!grounded)
+			return;
+		foreach (Collider2D collider in GetComponents<Collider2D>()) {
+			collider.enabled = false;
+			collider.enabled = true;
+		}
+	}
+
 	public void Jump() {
 		if (block)
 			return;
