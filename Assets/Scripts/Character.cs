@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Damageable))]
 public class Character : MonoBehaviour {
 
 	public bool enemy = false;
@@ -22,6 +23,7 @@ public class Character : MonoBehaviour {
 	Animator anim;
 	Rigidbody2D rigidBody;
 	Puppet2D_GlobalControl puppet;
+	Damageable damageable;
 
 	bool facingRight;
 	float recoveryRemains = 0f;
@@ -41,6 +43,9 @@ public class Character : MonoBehaviour {
 		puppet = GetComponent<Puppet2D_GlobalControl>();
 
 		attack = GetComponentInChildren<Attack>();
+
+		damageable = GetComponent<Damageable>();
+		damageable.OnDamage += TakeDamage;
 	}
 
 	void FixedUpdate () {
@@ -138,6 +143,9 @@ public class Character : MonoBehaviour {
 			return;
 		}
 
+		if (originator.enemy == enemy)
+			return;
+
 		LookAt (originator.gameObject.transform.position);
 		health -= damage;
 		if (health <= 0) {
@@ -152,6 +160,7 @@ public class Character : MonoBehaviour {
 		dead = true;
 		gameObject.layer = LayerMask.NameToLayer("Dead");
 		anim.SetTrigger ("Death");
+		damageable.enabled = false;
 	}
 
 	void Flip() {

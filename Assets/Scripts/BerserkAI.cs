@@ -36,6 +36,7 @@ public class BerserkAI : MonoBehaviour
 
 	IEnumerator Attacking()
 	{
+		yield return new WaitForSeconds (Random.Range (1f, 2f));
 		while (!playerCharacter.dead && !character.dead) {
 			character.LookAt (player.transform.position);
 			character.Attack ();

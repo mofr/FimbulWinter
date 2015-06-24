@@ -17,16 +17,19 @@ public class MeleeAttack : Attack
 		Vector2 center = new Vector2(collider.bounds.center.x, collider.bounds.center.y);
 		Collider2D[] targets = Physics2D.OverlapCircleAll(center, collider.radius);
 		foreach(Collider2D targetCollider in targets) {
-			Character targetCharacter = targetCollider.gameObject.GetComponent<Character>();
-			if(targetCharacter == null || targetCharacter.enemy == character.enemy || targetCharacter.dead) {
+			Damageable damageable = targetCollider.GetComponent<Damageable>();
+			if(!damageable || !damageable.enabled) {
 				continue;
 			}
-			
-			targetCharacter.TakeDamage(damage, character);
-			
-			Vector2 force = 400 * (targetCharacter.transform.position-character.transform.position).normalized;
-			force.y += 200;
-			targetCharacter.GetComponent<Rigidbody2D>().AddForce(force);
+
+			damageable.TakeDamage(damage, character);
+
+			Rigidbody2D rigidbody = targetCollider.GetComponent<Rigidbody2D>();
+			if(rigidbody) {
+				Vector2 force = 400 * (targetCollider.transform.position-character.transform.position).normalized;
+				force.y += 200;
+				rigidbody.AddForce(force);
+			}
 			break;
 		}
 	}

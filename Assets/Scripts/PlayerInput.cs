@@ -5,6 +5,7 @@ public class PlayerInput : MonoBehaviour
 {
 	public GameObject pawn;
 	Character character;
+	bool jumpPressed = false;
 
 	public static PlayerInput instance;
 	static int characterLayer = LayerMask.NameToLayer("Characters");
@@ -26,12 +27,18 @@ public class PlayerInput : MonoBehaviour
 		}
 	}
 
+	void Update() {
+		if (Input.GetButtonDown ("Jump")) {
+			jumpPressed = true;
+		}
+	}
+
 	void FixedUpdate ()
 	{
 		bool slipOffPlatforms = Input.GetButton ("Vertical") && Input.GetAxis ("Vertical") < 0;
 		Physics2D.IgnoreLayerCollision (characterLayer, platformsLayer, slipOffPlatforms);
 
-		if (Input.GetButtonDown ("Jump")) {
+		if (jumpPressed) {
 			if(slipOffPlatforms) {
 				character.SlipOffPlatform();
 			} else {
@@ -48,6 +55,8 @@ public class PlayerInput : MonoBehaviour
 		}
 
 		character.Block (Input.GetButton ("Fire2"));
+
+		jumpPressed = false;
 	}
 }
 

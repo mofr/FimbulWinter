@@ -173,6 +173,7 @@ GameObject:
   - 114: {fileID: 11415988}
   - 58: {fileID: 5827240}
   - 61: {fileID: 6171146}
+  - 114: {fileID: 11496100}
   m_Layer: 9
   m_Name: Bero
   m_TagString: Player
@@ -1136,7 +1137,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159738}
-  m_LocalRotation: {x: -8.13198113e-08, y: -2.21927152e-08, z: .397321641, w: -.917679489}
+  m_LocalRotation: {x: -3.92542603e-08, y: -1.95762393e-08, z: .397322893, w: -.917678952}
   m_LocalPosition: {x: 5.36257971e-07, y: 1.00000083, z: 7.43307851e-08}
   m_LocalScale: {x: 1.00000119, y: 1.00000143, z: 1.00000203}
   m_Children:
@@ -1878,7 +1879,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144124}
-  m_LocalRotation: {x: -1.31393364e-13, y: 6.56249821e-14, z: -.891244411, w: .453523338}
+  m_LocalRotation: {x: -2.10158131e-13, y: 4.21469153e-08, z: -.891244173, w: .453523844}
   m_LocalPosition: {x: 1.13432111e-15, y: 1.00000012, z: 1.2978024e-08}
   m_LocalScale: {x: 3.78206754, y: 3.78206706, z: 3.78205609}
   m_Children:
@@ -1916,7 +1917,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159644}
-  m_LocalRotation: {x: -5.54148762e-08, y: 7.56547394e-08, z: -.846024752, w: .533143699}
+  m_LocalRotation: {x: -5.54148123e-08, y: 7.56547891e-08, z: -.846024275, w: .533144414}
   m_LocalPosition: {x: -.821342826, y: -.813801348, z: 4.81371032e-08}
   m_LocalScale: {x: 1.22264123, y: 1.22264123, z: 1.22264218}
   m_Children:
@@ -1947,7 +1948,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.872220278, y: 1.0804553, z: 1.07712488e-08}
+  m_LocalPosition: {x: -.872219801, y: 1.0804553, z: 1.07712488e-08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 477044}
@@ -2253,7 +2254,7 @@ MonoBehaviour:
   initialRight: 0
   walkSpeed: 6
   runSpeed: 9
-  jumpForce: 750
+  jumpForce: 650
   health: 40
   maxHealth: 40
   dead: 0
@@ -2600,6 +2601,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &11496100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb22d6acf58b935408ca508e212e62cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDamageAction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!212 &21203258
 SpriteRenderer:
   m_ObjectHideFlags: 1

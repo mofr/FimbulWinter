@@ -25,12 +25,17 @@ public class Projectile : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Character target = collider.gameObject.GetComponent<Character>();
-		if (target && target.enemy != originator.enemy)
+		Damageable target = collider.GetComponent<Damageable>();
+		if (target)
 		{
 			target.TakeDamage(damage, originator);
-			Vector2 pushForce = 400 * velocity.normalized;
-			target.GetComponent<Rigidbody2D>().AddForce(pushForce);
+
+			Rigidbody2D rigidbody = target.GetComponent<Rigidbody2D>();
+			if(rigidbody) {
+				Vector2 pushForce = 400 * velocity.normalized;
+				rigidbody.AddForce(pushForce);
+			}
+
 			Destroy(gameObject);
 		}
 	}

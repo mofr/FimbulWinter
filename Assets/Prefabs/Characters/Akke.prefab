@@ -47,6 +47,7 @@ GameObject:
   - 82: {fileID: 8216066}
   - 61: {fileID: 6106826}
   - 114: {fileID: 11420510}
+  - 114: {fileID: 11443296}
   m_Layer: 9
   m_Name: Akke
   m_TagString: Untagged
@@ -263,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.0599995, y: -1.78999996, z: 0}
+  m_LocalPosition: {x: 46.4399986, y: -3.76999998, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children:
   - {fileID: 420620}
@@ -587,6 +588,17 @@ MonoBehaviour:
   dead: 0
   recoveryTime: 1
   attackTime: 1
+--- !u!114 &11443296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb22d6acf58b935408ca508e212e62cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11481446
 MonoBehaviour:
   m_ObjectHideFlags: 1
