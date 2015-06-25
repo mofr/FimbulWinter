@@ -20,6 +20,10 @@ public class Character : MonoBehaviour {
 	public float recoveryTime = 1f;
 	public float attackTime = 1f;
 
+	public bool grounded {
+		get { return _grounded; }
+	}
+
 	Animator anim;
 	Rigidbody2D rigidBody;
 	Puppet2D_GlobalControl puppet;
@@ -29,7 +33,7 @@ public class Character : MonoBehaviour {
 	float recoveryRemains = 0f;
 	float attackCooldown = 0f;
 	bool block = false;
-	bool grounded = false;
+	bool _grounded = false;
 	Collider2D groundedOn;
 	Collider2D rightWall;
 	Collider2D leftWall;
@@ -51,7 +55,7 @@ public class Character : MonoBehaviour {
 	void FixedUpdate () {
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/runSpeed);
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
-		anim.SetBool ("Grounded", grounded);
+		anim.SetBool ("Grounded", _grounded);
 
 		recoveryRemains = Mathf.Max (0, recoveryRemains-Time.deltaTime);
 		anim.SetFloat ("RecoveryRemains", recoveryRemains);
@@ -60,7 +64,7 @@ public class Character : MonoBehaviour {
 	}
 
 	public void SlipOffPlatform() {
-		if (!grounded)
+		if (!_grounded)
 			return;
 		foreach (Collider2D collider in GetComponents<Collider2D>()) {
 			collider.enabled = false;
@@ -71,7 +75,7 @@ public class Character : MonoBehaviour {
 	public void Jump() {
 		if (block)
 			return;
-		if (!grounded)
+		if (!_grounded)
 			return;
 		if (IsAttacking ())
 			return;
@@ -110,7 +114,7 @@ public class Character : MonoBehaviour {
 			return;
 		if (recoveryRemains > 0)
 			return;
-		if (!grounded)
+		if (!_grounded)
 			return;
 
 		anim.SetTrigger ("Attack");
@@ -120,7 +124,7 @@ public class Character : MonoBehaviour {
 	public void Block(bool block) {
 		if (IsAttacking ())
 			return;
-		if (!grounded)
+		if (!_grounded)
 			return;
 		if (recoveryRemains > 0)
 			return;
@@ -195,7 +199,7 @@ public class Character : MonoBehaviour {
 			ContactPoint2D contact = collision.contacts[i];
 			if(contact.normal.y > 0) {
 				groundedOn = collision.collider;
-				grounded = true;
+				_grounded = true;
 			}
 			if(Mathf.Abs(contact.normal.x) > Mathf.Abs (contact.normal.y)){
 				if(contact.normal.x < 0) {
@@ -210,7 +214,7 @@ public class Character : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D collision) {
 		if (collision.collider == groundedOn) {
-			grounded = false;
+			_grounded = false;
 			groundedOn = null;
 		}
 		if (collision.collider == rightWall) {
