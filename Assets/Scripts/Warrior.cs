@@ -41,6 +41,7 @@ public class Warrior : MonoBehaviour {
 	IEnumerator Fight() {
 		while (!playerCharacter.dead) {
 			move = Mathf.Sign(player.transform.position.x - transform.position.x);
+			jump = true;
 			yield return new WaitForSeconds(Random.Range (0.7f, 1.5f));
 		}
 	}
@@ -50,8 +51,6 @@ public class Warrior : MonoBehaviour {
 		if(Mathf.Abs(hit.normal.x) > 0.1) {
 			jump = true;
 		}
-
-		jump = true;
 
 //		Debug.Log ("collider " + hit.collider + ", jump " + jump);
 
