@@ -15,7 +15,9 @@ public class RangedAttack : Attack
 		GameObject projectile = Instantiate (projectilePrefab, transform.position, new Quaternion()) as GameObject;
 		Destroy (projectile, 10);
 
-		Vector3 diff = target.position - transform.position;
+		Collider2D targetCollider = target.GetComponent<Collider2D> ();
+
+		Vector3 diff = targetCollider.bounds.center - transform.position;
 		diff.Normalize();
 		float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 		projectile.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);

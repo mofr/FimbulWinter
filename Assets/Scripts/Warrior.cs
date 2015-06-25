@@ -30,7 +30,6 @@ public class Warrior : MonoBehaviour {
 		while (true) {
 			float dist = (player.transform.position - transform.position).magnitude;
 			if (dist < agroDistance) {
-				jump = true;
 				StartCoroutine ("Fight");
 				break;
 			}
@@ -41,26 +40,22 @@ public class Warrior : MonoBehaviour {
 	IEnumerator Fight() {
 		while (!playerCharacter.dead) {
 			move = Mathf.Sign(player.transform.position.x - transform.position.x);
-			jump = true;
 			yield return new WaitForSeconds(Random.Range (0.7f, 1.5f));
 		}
 	}
 
 	void FixedUpdate() {
-		RaycastHit2D hit = Physics2D.Raycast(collider.bounds.center, new Vector3(3*move, -1, 0), Mathf.Infinity, Layers.ground);
-		if(Mathf.Abs(hit.normal.x) > 0.1) {
-			jump = true;
+		if (character.grounded && ((character.leftWall && move < 0) || (character.rightWall && move > 0)))
+			move = -move;
+
+		if (character.grounded) {
+			RaycastHit2D hit = Physics2D.Raycast (collider.bounds.center, new Vector3 (3 * move, -1, 0), Mathf.Infinity, Layers.groundMask);
+			if (Mathf.Abs (hit.normal.x) > 0.1) {
+				character.Jump ();
+			}
 		}
 
-//		Debug.Log ("collider " + hit.collider + ", jump " + jump);
-
-		if (jump) {
-			character.Jump ();
-			jump = false;
-		}
-		if (move != 0) {
-			character.Move (move, true);
-		}
+		character.Move (move, true);
 	}
 
 	void Update() {
@@ -68,6 +63,6 @@ public class Warrior : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
-//		Gizmos.DrawWireSphere ();
+		Gizmos.DrawWireSphere (transform.position, agroDistance);
 	}
 }

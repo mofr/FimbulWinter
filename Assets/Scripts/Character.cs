@@ -24,6 +24,21 @@ public class Character : MonoBehaviour {
 		get { return _grounded; }
 	}
 
+	public Collider2D groundedOn {
+		get { return groundedOn; }
+	}
+
+	public Collider2D rightWall {
+		get { return _rightWall; }
+	}
+
+	public Collider2D leftWall {
+		get { return _leftWall; }
+	}
+
+	[HideInInspector]
+	public BoxCollider2D collider;
+
 	Animator anim;
 	Rigidbody2D rigidBody;
 	Puppet2D_GlobalControl puppet;
@@ -34,9 +49,9 @@ public class Character : MonoBehaviour {
 	float attackCooldown = 0f;
 	bool block = false;
 	bool _grounded = false;
-	Collider2D groundedOn;
-	Collider2D rightWall;
-	Collider2D leftWall;
+	Collider2D _groundedOn;
+	Collider2D _rightWall;
+	Collider2D _leftWall;
 	Attack attack;
 
 	void Awake() {
@@ -45,8 +60,8 @@ public class Character : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody2D>();
 		puppet = GetComponent<Puppet2D_GlobalControl>();
-
 		attack = GetComponentInChildren<Attack>();
+		collider = GetComponent<BoxCollider2D>();
 
 		damageable = GetComponent<Damageable>();
 		damageable.OnDamage += TakeDamage;
@@ -94,9 +109,9 @@ public class Character : MonoBehaviour {
 			return;
 		if (move == 0 || dead)
 			return;
-		if (rightWall && move > 0)
+		if (_rightWall && move > 0)
 			return;
-		if (leftWall && move < 0)
+		if (_leftWall && move < 0)
 			return;
 
 		float speed = run ? runSpeed : walkSpeed;
@@ -187,41 +202,41 @@ public class Character : MonoBehaviour {
 		if (collision.gameObject == gameObject)
 			return;
 
-		if (collision.collider == rightWall) {
-			rightWall = null;
+		if (collision.collider == _rightWall) {
+			_rightWall = null;
 		}
 
-		if (collision.collider == leftWall) {
-			leftWall = null;
+		if (collision.collider == _leftWall) {
+			_leftWall = null;
 		}
 
 		for (int i = 0; i < collision.contacts.Length; ++i) {
 			ContactPoint2D contact = collision.contacts[i];
 			if(contact.normal.y > 0) {
-				groundedOn = collision.collider;
+				_groundedOn = collision.collider;
 				_grounded = true;
 			}
 			if(Mathf.Abs(contact.normal.x) > Mathf.Abs (contact.normal.y)){
 				if(contact.normal.x < 0) {
-					rightWall = collision.collider;
+					_rightWall = collision.collider;
 				}
 				if(contact.normal.x > 0) {
-					leftWall = collision.collider;
+					_leftWall = collision.collider;
 				}
 			}
 		}
 	}
 
 	void OnCollisionExit2D(Collision2D collision) {
-		if (collision.collider == groundedOn) {
+		if (collision.collider == _groundedOn) {
 			_grounded = false;
-			groundedOn = null;
+			_groundedOn = null;
 		}
-		if (collision.collider == rightWall) {
-			rightWall = null;
+		if (collision.collider == _rightWall) {
+			_rightWall = null;
 		}
-		if (collision.collider == leftWall) {
-			leftWall = null;
+		if (collision.collider == _leftWall) {
+			_leftWall = null;
 		}
 	}
 

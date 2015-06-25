@@ -39,10 +39,8 @@ public class Portal : MonoBehaviour {
 		ScreenFader.FadeToBlack (duration);
 		yield return new WaitForSeconds (duration);
 
+		target.transform.SetParent (destination.parent);
 		target.transform.position = destination.position;
-		
-		CameraLimits newCameraLimits = destination.GetComponentInParent<CameraLimits>();
-		Camera.main.GetComponent<CameraController> ().SetLimits (newCameraLimits);
 
 		ScreenFader.FadeToClear (duration);
 
