@@ -154,19 +154,19 @@ public class Character : MonoBehaviour {
 		}
 	}
 
-	public void TakeDamage(float damage, Character originator) {
+	void TakeDamage(Damage damage) {
 		if (dead)
 			return;
 
-		if (block) {
+		if (block && damage.canBeBlocked) {
 			return;
 		}
 
-		if (originator.enemy == enemy)
+		if (damage.originator.enemy == enemy)
 			return;
 
-		LookAt (originator.gameObject.transform.position);
-		health -= damage;
+		LookAt (damage.originator.transform.position);
+		health -= damage.amount;
 		if (health <= 0) {
 			Kill();
 		} else {

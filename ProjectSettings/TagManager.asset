@@ -47,6 +47,9 @@ TagManager:
   - name: Character
     uniqueID: 80158559
     locked: 1
+  - name: Effects
+    uniqueID: 4134263793
+    locked: 0
   - name: Foreground
     uniqueID: 1089720049
     locked: 0

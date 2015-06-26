@@ -4,6 +4,7 @@ using System.Collections;
 public class Warrior : MonoBehaviour {
 
 	public float agroDistance = 1;
+	public float damage = 0;
 
 	Character character;
 	BoxCollider2D collider;
@@ -60,6 +61,17 @@ public class Warrior : MonoBehaviour {
 
 	void Update() {
 		Debug.DrawRay (collider.bounds.center, new Vector3 (3 * move, -1, 0));
+	}
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (character.dead)
+			return;
+		
+		if (collider.gameObject == player) {
+			Damage damage = new Damage(this.damage, character);
+			damage.canBeBlocked = false;
+			collider.gameObject.GetComponent<Damageable>().TakeDamage(damage);
+		}
 	}
 
 	void OnDrawGizmos() {
