@@ -7,7 +7,6 @@ public class Warrior : MonoBehaviour {
 	public float damage = 0;
 
 	Character character;
-	BoxCollider2D collider;
 
 	GameObject player;
 	Character playerCharacter;
@@ -19,7 +18,6 @@ public class Warrior : MonoBehaviour {
 	
 	void Start () {
 		character = GetComponent <Character>();
-		collider = GetComponent<BoxCollider2D> ();
 
 		player = GameObject.FindWithTag ("Player");
 		playerCharacter = player.GetComponent <Character>();
@@ -50,7 +48,7 @@ public class Warrior : MonoBehaviour {
 			move = -move;
 
 		if (character.grounded) {
-			RaycastHit2D hit = Physics2D.Raycast (collider.bounds.center, new Vector3 (3 * move, -1, 0), Mathf.Infinity, Layers.groundMask);
+			RaycastHit2D hit = Physics2D.Raycast (character.collider.bounds.center, new Vector3 (3 * move, -1, 0), Mathf.Infinity, Layers.groundMask);
 			if (Mathf.Abs (hit.normal.x) > 0.1) {
 				character.Jump ();
 			}
@@ -60,7 +58,7 @@ public class Warrior : MonoBehaviour {
 	}
 
 	void Update() {
-		Debug.DrawRay (collider.bounds.center, new Vector3 (3 * move, -1, 0));
+		Debug.DrawRay (character.collider.bounds.center, new Vector3 (3 * move, -1, 0));
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {

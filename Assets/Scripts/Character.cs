@@ -92,8 +92,6 @@ public class Character : MonoBehaviour {
 			return;
 		if (!_grounded)
 			return;
-		if (IsAttacking ())
-			return;
 		if (recoveryRemains > 0)
 			return;
 
@@ -102,8 +100,6 @@ public class Character : MonoBehaviour {
 
 	public void Move(float move, bool run = false) {
 		if (block)
-			return;
-		if (IsAttacking ())
 			return;
 		if (recoveryRemains > 0)
 			return;
@@ -135,8 +131,6 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Block(bool block) {
-		if (IsAttacking ())
-			return;
 		if (!_grounded)
 			return;
 		if (recoveryRemains > 0)
@@ -190,10 +184,6 @@ public class Character : MonoBehaviour {
 			theScale.x *= -1;
 			transform.localScale = theScale;
 		}
-	}
-
-	bool IsAttacking() {
-		return anim.GetCurrentAnimatorStateInfo (0).IsName ("Attack");
 	}
 
 	void OnCollisionStay2D(Collision2D collision) {
