@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AIController : MonoBehaviour {
+public class RedMonster : MonoBehaviour {
 
 	public float agroDistance = 5f;
 	public float attackDistance = 1.2f;

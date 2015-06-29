@@ -25,6 +25,9 @@ public class Projectile : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
+		if (collider.gameObject == originator.gameObject)
+			return;
+
 		Damageable target = collider.GetComponent<Damageable>();
 		if (target)
 		{

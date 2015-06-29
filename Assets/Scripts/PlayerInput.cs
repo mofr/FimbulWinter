@@ -45,10 +45,8 @@ public class PlayerInput : MonoBehaviour
 				character.Jump ();
 			}
 		}
-		
-		if (Input.GetButton ("Horizontal")) {
-			character.Move (Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift));
-		}
+
+		character.Move (Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift));
 
 		if (Input.GetButton ("Fire1")) {
 			character.Attack();
