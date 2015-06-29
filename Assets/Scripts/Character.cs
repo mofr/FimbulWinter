@@ -129,8 +129,6 @@ public class Character : MonoBehaviour {
 			return;
 		if (recoveryRemains > 0)
 			return;
-		if (!_grounded)
-			return;
 
 		anim.SetTrigger ("Attack");
 		attackCooldown = attackTime;
