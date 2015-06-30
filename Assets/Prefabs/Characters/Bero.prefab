@@ -2238,12 +2238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 0
-  health: 40
+  health: 500
   maxHealth: 40
   dead: 0
   recoveryTime: 1
   attackTime: .5
-  collider: {fileID: 0}
 --- !u!114 &11418504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2552,6 +2551,8 @@ MonoBehaviour:
   walkSpeed: 6
   runSpeed: 8
   jumpForce: 650
+  jumpEffectPrefab: {fileID: 103246, guid: a920a28dc2b07924e94eeff9584f480e, type: 2}
+  canMove: 1
 --- !u!114 &11490444
 MonoBehaviour:
   m_ObjectHideFlags: 1

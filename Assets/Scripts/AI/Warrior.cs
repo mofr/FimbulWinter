@@ -14,7 +14,6 @@ public class Warrior : MonoBehaviour {
 	Character playerCharacter;
 
 	float move = 0f;
-	bool jump = false;
 
 	Vector2 hitPosition;
 	
@@ -79,7 +78,7 @@ public class Warrior : MonoBehaviour {
 		}
 	}
 
-	void OnDrawGizmos() {
+	void OnDrawGizmosSelected() {
 		Gizmos.DrawWireSphere (transform.position, agroDistance);
 	}
 }

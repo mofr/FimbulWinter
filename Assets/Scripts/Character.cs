@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class Character : MonoBehaviour {
 
 	public bool enemy = false;
+	public GameObject deathEffectPrefab;
 
 	[Header("Battle")]
 	public float health = 100f;
@@ -22,6 +23,7 @@ public class Character : MonoBehaviour {
 	Animator anim;
 	Damageable damageable;
 	CharacterMovement movement;
+	BoxCollider2D collider;
 	
 	float recoveryRemains = 0f;
 	float attackCooldown = 0f;
@@ -32,6 +34,7 @@ public class Character : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		attack = GetComponentInChildren<Attack>();
 		movement = GetComponent<CharacterMovement>();
+		collider = GetComponent<BoxCollider2D>();
 
 		damageable = GetComponent<Damageable>();
 		damageable.OnDamage += TakeDamage;
@@ -86,6 +89,7 @@ public class Character : MonoBehaviour {
 			return;
 
 		health -= damage.amount;
+		movement.LookAt (damage.originator.transform.position);
 		if (health <= 0) {
 			Kill();
 		} else {
@@ -101,7 +105,14 @@ public class Character : MonoBehaviour {
 		anim.SetTrigger ("Death");
 		damageable.enabled = false;
 		movement.canMove = false;
-		onDeath ();
+
+		if(onDeath != null)
+			onDeath ();
+
+		if (deathEffectPrefab) {
+			GameObject deathEffect = Instantiate (deathEffectPrefab, collider.bounds.center, transform.rotation) as GameObject;
+			Destroy (deathEffect, 4);
+		}
 	}
 
 	void OnAttack() {

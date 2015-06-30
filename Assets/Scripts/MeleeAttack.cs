@@ -23,13 +23,6 @@ public class MeleeAttack : Attack
 			}
 
 			damageable.TakeDamage(damage, character);
-
-			Rigidbody2D rigidbody = targetCollider.GetComponent<Rigidbody2D>();
-			if(rigidbody) {
-				Vector2 force = 400 * (targetCollider.transform.position-character.transform.position).normalized;
-				force.y += 200;
-				rigidbody.AddForce(force);
-			}
 			break;
 		}
 	}

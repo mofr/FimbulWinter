@@ -16,10 +16,10 @@ public class Impaled : MonoBehaviour {
 	}
 	
 	void TakeDamage(Damage damage) {
-		GameObject hitEffect = Instantiate (hitEffectPrefab);
+		GameObject hitEffect = Instantiate (hitEffectPrefab) as GameObject;
 		hitEffect.transform.position = transform.position;
 		if (damage.originator.transform.position.x > transform.position.x) {
-			hitEffect.transform.localScale = new Vector2(-1, 1);
+			hitEffect.transform.rotation = Quaternion.Euler(0, 180, 0);
 		}
 		Destroy (hitEffect, 3);
 

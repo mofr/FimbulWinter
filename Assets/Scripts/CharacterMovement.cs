@@ -10,6 +10,8 @@ public class CharacterMovement : MonoBehaviour
 	public float runSpeed = 6f;
 	public float jumpForce = 350f;
 
+	public GameObject jumpEffectPrefab;
+
 	[HideInInspector]
 	public bool canMove = true;
 
@@ -32,6 +34,7 @@ public class CharacterMovement : MonoBehaviour
 	Animator anim;
 	Rigidbody2D rigidBody;
 	Puppet2D_GlobalControl puppet;
+	BoxCollider2D collider;
 
 	bool facingRight;
 	bool _grounded = false;
@@ -45,6 +48,11 @@ public class CharacterMovement : MonoBehaviour
 		anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody2D>();
 		puppet = GetComponent<Puppet2D_GlobalControl>();
+		collider = GetComponent<BoxCollider2D>();
+
+		if(puppet) {
+			facingRight = puppet.flip;
+		}
 	}
 
 	void FixedUpdate ()
@@ -122,9 +130,12 @@ public class CharacterMovement : MonoBehaviour
 		
 		for (int i = 0; i < collision.contacts.Length; ++i) {
 			ContactPoint2D contact = collision.contacts[i];
-			if(contact.normal.y > 0) {
+			if(contact.normal.y > 0 && collider.bounds.min.y >= contact.point.y) {
 				_groundedOn = collision.collider;
-				_grounded = true;
+				if(!_grounded) {
+					_grounded = true;
+					GroundedEffect ();
+				}
 			}
 			if(Mathf.Abs(contact.normal.x) > Mathf.Abs (contact.normal.y)){
 				if(contact.normal.x < 0) {
@@ -152,6 +163,23 @@ public class CharacterMovement : MonoBehaviour
 	
 	void OnJump() {
 		rigidBody.AddForce(new Vector2(0f, jumpForce));
+		JumpEffect ();
+	}
+
+	void JumpEffect() {
+		if (!jumpEffectPrefab)
+			return;
+
+		GameObject jumpEffect = Instantiate (jumpEffectPrefab, transform.position, transform.rotation) as GameObject;
+		Destroy (jumpEffect, 2);
+	}
+
+	void GroundedEffect() {
+		if (!jumpEffectPrefab)
+			return;
+		
+		GameObject jumpEffect = Instantiate (jumpEffectPrefab, transform.position, transform.rotation) as GameObject;
+		Destroy (jumpEffect, 2);
 	}
 }
 

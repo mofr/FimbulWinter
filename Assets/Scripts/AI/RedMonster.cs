@@ -69,7 +69,7 @@ public class RedMonster : MonoBehaviour {
 		StartCoroutine ("Patrol");
 	}
 
-	void OnDrawGizmos() {
+	void OnDrawGizmosSelected() {
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere (transform.position, agroDistance);
 	}
