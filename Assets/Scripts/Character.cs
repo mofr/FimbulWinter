@@ -16,6 +16,9 @@ public class Character : MonoBehaviour {
 	public float recoveryTime = 1f;
 	public float attackTime = 1f;
 
+	public delegate void OnDeath();
+	public event OnDeath onDeath;
+
 	Animator anim;
 	Damageable damageable;
 	CharacterMovement movement;
@@ -98,6 +101,7 @@ public class Character : MonoBehaviour {
 		anim.SetTrigger ("Death");
 		damageable.enabled = false;
 		movement.canMove = false;
+		onDeath ();
 	}
 
 	void OnAttack() {

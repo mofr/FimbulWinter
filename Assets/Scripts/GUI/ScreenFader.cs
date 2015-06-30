@@ -7,7 +7,7 @@ public class ScreenFader : MonoBehaviour
 	static ScreenFader instance;
 
 	RawImage overlay;
-	float t = 1;
+	float t = 0;
 	float speed = 0;
 
 	void Awake() {
@@ -22,6 +22,10 @@ public class ScreenFader : MonoBehaviour
 		overlay.transform.localScale = new Vector3 (1,1,1);
 		overlay.rectTransform.anchorMin = new Vector2 (0, 0);
 		overlay.rectTransform.anchorMax = new Vector2 (1, 1);
+	}
+
+	void Start() {
+		ScreenFader.FadeToClear ();
 	}
 
 	public static void FadeToBlack(float duration = 1f) {
