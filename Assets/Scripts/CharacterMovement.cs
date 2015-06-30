@@ -130,7 +130,7 @@ public class CharacterMovement : MonoBehaviour
 		
 		for (int i = 0; i < collision.contacts.Length; ++i) {
 			ContactPoint2D contact = collision.contacts[i];
-			if(contact.normal.y > 0 && collider.bounds.min.y >= contact.point.y) {
+			if(contact.normal.y > 0) {
 				_groundedOn = collision.collider;
 				if(!_grounded) {
 					_grounded = true;
