@@ -469,6 +469,7 @@ GameObject:
   - 114: {fileID: 11494016}
   - 61: {fileID: 6103700}
   - 50: {fileID: 5030978}
+  - 114: {fileID: 11461792}
   m_Layer: 10
   m_Name: Warrior
   m_TagString: Untagged
@@ -1204,7 +1205,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114168}
-  m_LocalRotation: {x: 2.08834635e-07, y: 2.75808176e-08, z: -.144872054, w: -.989450395}
+  m_LocalRotation: {x: 2.08885851e-07, y: 2.72552931e-08, z: -.144870818, w: -.989450634}
   m_LocalPosition: {x: -4.42210322e-08, y: 1.00000012, z: 8.32697751e-08}
   m_LocalScale: {x: .72161907, y: .72161907, z: .721619248}
   m_Children:
@@ -1552,7 +1553,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199174}
-  m_LocalRotation: {x: 3.07080548e-08, y: 4.57481271e-08, z: .404163539, w: .914686799}
+  m_LocalRotation: {x: 3.07081081e-08, y: 4.57480915e-08, z: .404164672, w: .914686322}
   m_LocalPosition: {x: 3.59526737e-08, y: .999999762, z: -2.28177068e-08}
   m_LocalScale: {x: 2.69576001, y: 2.69575953, z: 2.69575906}
   m_Children:
@@ -1669,7 +1670,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155666}
-  m_LocalRotation: {x: 3.85317733e-09, y: 2.07181614e-08, z: .685990691, w: .72761035}
+  m_LocalRotation: {x: 3.85325416e-09, y: 2.07181472e-08, z: .685993433, w: .727607787}
   m_LocalPosition: {x: -.770546615, y: -.695204079, z: 4.31680718e-08}
   m_LocalScale: {x: 2.59081554, y: 2.59081578, z: 2.59081578}
   m_Children:
@@ -1684,7 +1685,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100490}
-  m_LocalRotation: {x: -3.93036162e-15, y: -4.21468513e-08, z: -.972895741, w: -.231244475}
+  m_LocalRotation: {x: -3.77615546e-16, y: -4.21468656e-08, z: -.972896695, w: -.231240571}
   m_LocalPosition: {x: 2.95157339e-08, y: 1, z: -1.69613529e-07}
   m_LocalScale: {x: 3.96153474, y: 3.96153378, z: 3.96153474}
   m_Children:
@@ -1819,7 +1820,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126042}
-  m_LocalRotation: {x: -1.64634451e-09, y: -1.68587405e-07, z: .999943435, w: -.0106364796}
+  m_LocalRotation: {x: -1.97562033e-09, y: -1.68587405e-07, z: .999943495, w: -.0106365075}
   m_LocalPosition: {x: -2.31021269e-09, y: 1, z: -6.92040999e-12}
   m_LocalScale: {x: 4.96114349, y: 4.96114254, z: 4.96114397}
   m_Children:
@@ -2002,7 +2003,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173792}
-  m_LocalRotation: {x: 4.14363228e-08, y: -7.70635289e-09, z: .0494567454, w: .998776317}
+  m_LocalRotation: {x: 4.14362979e-08, y: -7.70650832e-09, z: .0494489521, w: .998776734}
   m_LocalPosition: {x: -1.15030678e-08, y: 1.00000012, z: 1.09701778e-14}
   m_LocalScale: {x: .940309942, y: .940310001, z: .940309942}
   m_Children:
@@ -2172,9 +2173,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 08fc88129e727cb4d8a59a94cb94b43b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .105213821, y: .672661543}
+  m_Offset: {x: .0767192841, y: .706852674}
   serializedVersion: 2
-  m_Size: {x: .543143034, y: 1.32877684}
+  m_Size: {x: .714098394, y: 1.3971591}
 --- !u!95 &9578272
 Animator:
   serializedVersion: 3
@@ -2653,6 +2654,22 @@ MonoBehaviour:
   OffsetPos: {x: 0, y: 0, z: 0}
   OffsetScale: {x: .103616506, y: .103616521, z: .103616513}
   OffsetOrient: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &11461792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af25faf383480074b88a35a7c9e220bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialRight: 0
+  walkSpeed: 2
+  runSpeed: 6
+  jumpForce: 700
+  canMove: 1
 --- !u!114 &11470362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2665,16 +2682,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 1
-  initialRight: 0
-  walkSpeed: 2
-  runSpeed: 6
-  jumpForce: 700
   health: 10
   maxHealth: 10
   dead: 0
   recoveryTime: 0
   attackTime: 1
-  collider: {fileID: 0}
 --- !u!114 &11479566
 MonoBehaviour:
   m_ObjectHideFlags: 1

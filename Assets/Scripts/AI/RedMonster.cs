@@ -7,6 +7,7 @@ public class RedMonster : MonoBehaviour {
 	public float attackDistance = 1.2f;
 
 	Character character;
+	CharacterMovement movement;
 	float move = 0;
 	GameObject player;
 	Character playerCharacter;
@@ -14,6 +15,7 @@ public class RedMonster : MonoBehaviour {
 	
 	void Start () {
 		character = GetComponent<Character>();
+		movement = GetComponent <CharacterMovement>();
 		player = GameObject.FindWithTag("Player");
 		playerCharacter = player.GetComponent<Character> ();
 		startPos = transform.position;
@@ -23,7 +25,7 @@ public class RedMonster : MonoBehaviour {
 	}
 
 	void Update() {
-		character.Move (move);
+		movement.Move (move);
 	}
 
 	IEnumerator Patrol() {
@@ -54,7 +56,7 @@ public class RedMonster : MonoBehaviour {
 			float diffX = player.transform.position.x - transform.position.x;
 
 			if(distance < attackDistance) {
-				character.LookAt(player.transform.position);
+				movement.LookAt(player.transform.position);
 				character.Attack();
 				move = 0;
 				yield return new WaitForSeconds(1.0f);

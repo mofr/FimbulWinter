@@ -5,6 +5,7 @@ public class PlayerInput : MonoBehaviour
 {
 	public GameObject pawn;
 	Character character;
+	CharacterMovement movement;
 	bool jumpPressed = false;
 
 	public static PlayerInput instance;
@@ -25,6 +26,8 @@ public class PlayerInput : MonoBehaviour
 		if (!character) {
 			Debug.LogError("Pawn must have Character component");
 		}
+
+		movement = pawn.GetComponent<CharacterMovement>();
 	}
 
 	void Update() {
@@ -35,26 +38,28 @@ public class PlayerInput : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+		if (character.dead)
+			return;
+
 		bool slipOffPlatforms = Input.GetButton ("Vertical") && Input.GetAxis ("Vertical") < 0;
 		Physics2D.IgnoreLayerCollision (characterLayer, platformsLayer, slipOffPlatforms);
 
 		if (jumpPressed) {
 			if(slipOffPlatforms) {
-				character.SlipOffPlatform();
+				movement.SlipOffPlatform();
 			} else {
-				character.Jump ();
+				movement.Jump ();
 			}
+			jumpPressed = false;
 		}
 
-		character.Move (Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift));
+		movement.Move (Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift));
 
 		if (Input.GetButton ("Fire1")) {
 			character.Attack();
 		}
 
 		character.Block (Input.GetButton ("Fire2"));
-
-		jumpPressed = false;
 	}
 }
 

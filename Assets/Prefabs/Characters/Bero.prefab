@@ -173,6 +173,7 @@ GameObject:
   - 114: {fileID: 11415988}
   - 61: {fileID: 6171146}
   - 114: {fileID: 11496100}
+  - 114: {fileID: 11487268}
   m_Layer: 9
   m_Name: Bero
   m_TagString: Player
@@ -2237,10 +2238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 0
-  initialRight: 0
-  walkSpeed: 6
-  runSpeed: 9
-  jumpForce: 700
   health: 40
   maxHealth: 40
   dead: 0
@@ -2540,6 +2537,21 @@ MonoBehaviour:
   boneToAimAt: {fileID: 454322}
   InEditBoneMode: 0
   _newSelection: []
+--- !u!114 &11487268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af25faf383480074b88a35a7c9e220bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialRight: 0
+  walkSpeed: 6
+  runSpeed: 8
+  jumpForce: 650
 --- !u!114 &11490444
 MonoBehaviour:
   m_ObjectHideFlags: 1

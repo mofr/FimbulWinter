@@ -6,6 +6,7 @@ public class BerserkAI : MonoBehaviour
 	public TriggerArea agroArea;
 
 	Character character;
+	CharacterMovement movement;
 	RangedAttack attack;
 	GameObject player;
 	Character playerCharacter;
@@ -13,6 +14,7 @@ public class BerserkAI : MonoBehaviour
 	void Start ()
 	{
 		character = GetComponent<Character>();
+		movement = GetComponent<CharacterMovement>();
 		attack = GetComponentInChildren<RangedAttack>();
 		player = GameObject.FindWithTag("Player");
 		playerCharacter = player.GetComponent<Character>();
@@ -38,7 +40,7 @@ public class BerserkAI : MonoBehaviour
 	{
 		yield return new WaitForSeconds (Random.Range (1f, 2f));
 		while (!playerCharacter.dead && !character.dead) {
-			character.LookAt (player.transform.position);
+			movement.LookAt (player.transform.position);
 			character.Attack ();
 			yield return new WaitForSeconds (Random.Range (2f, 5f));
 		}

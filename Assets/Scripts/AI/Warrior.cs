@@ -7,6 +7,8 @@ public class Warrior : MonoBehaviour {
 	public float damage = 0;
 
 	Character character;
+	CharacterMovement movement;
+	BoxCollider2D collider;
 
 	GameObject player;
 	Character playerCharacter;
@@ -18,6 +20,8 @@ public class Warrior : MonoBehaviour {
 	
 	void Start () {
 		character = GetComponent <Character>();
+		movement = GetComponent<CharacterMovement>();
+		collider = GetComponent<BoxCollider2D>();
 
 		player = GameObject.FindWithTag ("Player");
 		playerCharacter = player.GetComponent <Character>();
@@ -37,28 +41,31 @@ public class Warrior : MonoBehaviour {
 	}
 
 	IEnumerator Fight() {
-		while (!playerCharacter.dead) {
+		while (!playerCharacter.dead && !character.dead) {
 			move = Mathf.Sign(player.transform.position.x - transform.position.x);
 			yield return new WaitForSeconds(Random.Range (0.7f, 1.5f));
 		}
 	}
 
 	void FixedUpdate() {
-		if (character.grounded && ((character.leftWall && move < 0) || (character.rightWall && move > 0)))
+		if (character.dead)
+			return;
+
+		if (movement.grounded && ((movement.leftWall && move < 0) || (movement.rightWall && move > 0)))
 			move = -move;
 
-		if (character.grounded) {
-			RaycastHit2D hit = Physics2D.Raycast (character.collider.bounds.center, new Vector3 (3 * move, -1, 0), Mathf.Infinity, Layers.groundMask);
+		if (movement.grounded) {
+			RaycastHit2D hit = Physics2D.Raycast (collider.bounds.center, new Vector3 (3 * move, -1, 0), Mathf.Infinity, Layers.groundMask);
 			if (Mathf.Abs (hit.normal.x) > 0.1) {
-				character.Jump ();
+				movement.Jump ();
 			}
 		}
 
-		character.Move (move, true);
+		movement.Move (move, true);
 	}
 
 	void Update() {
-		Debug.DrawRay (character.collider.bounds.center, new Vector3 (3 * move, -1, 0));
+		Debug.DrawRay (collider.bounds.center, new Vector3 (3 * move, -1, 0));
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
