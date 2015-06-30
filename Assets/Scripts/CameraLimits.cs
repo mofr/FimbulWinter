@@ -1,17 +1,29 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class CameraLimits : MonoBehaviour
 {
-	public float minX = -9.6f;
-	public float maxX = 9.6f;
-	public float minY = -5.4f;
-	public float maxY = 5.4f;
+	public Vector2 min = new Vector2(-9.6f, -5.4f);
+	public Vector2 max = new Vector2(9.6f, 5.4f);
+
+	public Vector3 worldMin {
+		get {
+			return transform.position + (Vector3)min;
+		}
+	}
+
+	public Vector3 worldMax {
+		get {
+			return transform.position + (Vector3)max;
+		}
+	}
 
 	void OnDrawGizmos() {
 		Gizmos.color = Color.cyan;
-		Gizmos.DrawWireCube (new Vector2((maxX+minX)/2, (maxY+minY)/2), 
-		                     new Vector2(maxX-minX, maxY-minY));
+		Vector3 center = (min + max)/2;
+		Vector3 size = max - min;
+		Gizmos.DrawWireCube (center + transform.position, size);
 	}
 }
 

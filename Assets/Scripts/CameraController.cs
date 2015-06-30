@@ -39,11 +39,13 @@ public class CameraController : MonoBehaviour {
 		Vector3 targetPos = target.position; 
 		targetPos.z = transform.position.z;
 		targetPos += (Vector3)offset;
-		
+
 		//clamp targetPos to limits
-		float cameraWidth = camera.orthographicSize * camera.aspect;
-		targetPos.x = Mathf.Clamp (targetPos.x, limits.minX+cameraWidth, limits.maxX-cameraWidth);
-		targetPos.y = Mathf.Clamp (targetPos.y, limits.minY+camera.orthographicSize, limits.maxY-camera.orthographicSize);
+		Vector3 cameraSize = new Vector3 (camera.orthographicSize * camera.aspect, camera.orthographicSize);
+		Vector3 min = limits.worldMin + cameraSize;
+		Vector3 max = limits.worldMax - cameraSize;
+		targetPos.x = Mathf.Clamp (targetPos.x, min.x, max.x);
+		targetPos.y = Mathf.Clamp (targetPos.y, min.y, max.y);
 
 		return targetPos;
 	}
