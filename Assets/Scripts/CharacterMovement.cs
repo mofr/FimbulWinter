@@ -62,15 +62,6 @@ public class CharacterMovement : MonoBehaviour
 		anim.SetBool ("Grounded", _grounded);
 	}
 	
-	public void SlipOffPlatform() {
-		if (!_grounded)
-			return;
-		foreach (Collider2D collider in GetComponents<Collider2D>()) {
-			collider.enabled = false;
-			collider.enabled = true;
-		}
-	}
-	
 	public void Jump() {
 		if (!canMove)
 			return;

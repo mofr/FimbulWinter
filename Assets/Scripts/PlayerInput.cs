@@ -9,8 +9,6 @@ public class PlayerInput : MonoBehaviour
 	bool jumpPressed = false;
 
 	public static PlayerInput instance;
-	static int characterLayer = LayerMask.NameToLayer("Characters");
-	static int platformsLayer = LayerMask.NameToLayer("Platform");
 
 	void Awake() {
 		instance = this;
@@ -42,11 +40,11 @@ public class PlayerInput : MonoBehaviour
 			return;
 
 		bool slipOffPlatforms = Input.GetButton ("Vertical") && Input.GetAxis ("Vertical") < 0;
-		Physics2D.IgnoreLayerCollision (characterLayer, platformsLayer, slipOffPlatforms);
+		Physics2D.IgnoreLayerCollision (Layers.characters, Layers.platform, slipOffPlatforms);
 
 		if (jumpPressed) {
 			if(slipOffPlatforms) {
-				movement.SlipOffPlatform();
+				pawn.layer = pawn.layer;
 			} else {
 				movement.Jump ();
 			}
