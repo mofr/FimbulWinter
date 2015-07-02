@@ -3,13 +3,26 @@ using System.Collections;
 
 public class BerserkAI : MonoBehaviour
 {
-	public TriggerArea agroArea;
+	public bool attacking {
+		set {
+			if(value == _attacking) 
+				return;
+
+			_attacking = value;
+			if(_attacking) {
+				StartCoroutine ("Attacking");
+			} else {
+				StopCoroutine ("Attacking");
+			}
+		}
+	}
 
 	Character character;
 	CharacterMovement movement;
 	RangedAttack attack;
 	GameObject player;
 	Character playerCharacter;
+	bool _attacking = false;
 	
 	void Start ()
 	{
@@ -19,21 +32,6 @@ public class BerserkAI : MonoBehaviour
 		player = GameObject.FindWithTag("Player");
 		playerCharacter = player.GetComponent<Character>();
 		attack.target = player.transform;
-
-		agroArea.onEnter += OnAgroAreaEnter;
-		agroArea.onExit += OnAgroAreaExit;
-	}
-
-	void OnAgroAreaEnter(Collider2D collider) {
-		if (collider.gameObject == player) {
-			StartCoroutine ("Attacking");
-		}
-	}
-
-	void OnAgroAreaExit(Collider2D collider) {
-		if (collider.gameObject == player) {
-			StopCoroutine ("Attacking");
-		}
 	}
 
 	IEnumerator Attacking()

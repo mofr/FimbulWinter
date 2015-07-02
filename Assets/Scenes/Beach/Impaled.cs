@@ -22,7 +22,5 @@ public class Impaled : MonoBehaviour {
 			hitEffect.transform.rotation = Quaternion.Euler(0, 180, 0);
 		}
 		Destroy (hitEffect, 3);
-
-		anim.SetTrigger ("Fall");
 	}
 }

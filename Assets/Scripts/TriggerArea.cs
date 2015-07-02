@@ -4,14 +4,27 @@ using System.Collections;
 
 public class TriggerArea : MonoBehaviour {
 	
-	public UnityAction<Collider2D> onEnter;
-	public UnityAction<Collider2D> onExit;
+	public bool playerOnly = true;
+	public UnityEvent enterEvent;
+	public UnityEvent exitEvent;
+
+	GameObject player;
+
+	void Start() {
+		player = GameObject.FindWithTag ("Player");
+	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		onEnter.Invoke (collider);
+		if (playerOnly && collider.gameObject != player)
+			return;
+
+		enterEvent.Invoke ();
 	}
 
 	void OnTriggerExit2D(Collider2D collider) {
-		onExit.Invoke (collider);
+		if (playerOnly && collider.gameObject != player)
+			return;
+
+		exitEvent.Invoke ();
 	}
 }
