@@ -71,9 +71,14 @@ MonoBehaviour:
       height: .125
     body:
     - serializedVersion: 2
+      x: .5
+      y: 0
+      width: .5
+      height: .125
+    - serializedVersion: 2
       x: 0
       y: 0
-      width: 1
+      width: .5
       height: .125
     capOffset: -1.24000001
   - applyTo: 1
@@ -107,7 +112,12 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 0
       y: .125
-      width: 1
+      width: .5
+      height: .125
+    - serializedVersion: 2
+      x: .5
+      y: .125
+      width: .5
       height: .125
     capOffset: -1.24000001
   - applyTo: 2
@@ -141,7 +151,12 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 0
       y: .25
-      width: 1
+      width: .5
+      height: .125
+    - serializedVersion: 2
+      x: .5
+      y: .25
+      width: .5
       height: .125
     capOffset: -1.24000001
   - applyTo: 3
@@ -187,6 +202,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[1].body.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[0].body.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[2].body.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: fillMaterial
       value: 
       objectReference: {fileID: 2100000, guid: c138879130bd9db4a88f41a5ec007f8e, type: 2}
@@ -200,7 +227,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[0].body.Array.data[0].width
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[0].body.Array.data[0].height
@@ -208,7 +235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[1].body.Array.data[0].width
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[1].body.Array.data[0].height
@@ -216,7 +243,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[2].body.Array.data[0].width
-      value: .994140625
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[2].body.Array.data[0].height
@@ -445,6 +472,34 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[3].innerRightCap.y
       value: .875
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[1].body.Array.data[1].x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[1].body.Array.data[1].y
+      value: .125
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[1].body.Array.data[1].width
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[1].body.Array.data[1].height
+      value: .125
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[0].body.Array.data[1].height
+      value: .125
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[0].body.Array.data[1].width
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[0].body.Array.data[0].x
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
