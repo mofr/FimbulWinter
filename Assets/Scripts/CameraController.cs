@@ -25,9 +25,14 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void LateUpdate () {
+		CameraLimits newLimits = limits;
 		if (target.parent != targetParent) {
 			targetParent = target.parent;
-			limits = target.parent.GetComponentInParent<CameraLimits>();
+			newLimits = target.parent.GetComponentInParent<CameraLimits> ();
+		}
+
+		if(newLimits != limits) {
+			limits = newLimits;
 			transform.position = CalcTargetPos();
 		} else {
 			Vector3 targetPos = CalcTargetPos ();
