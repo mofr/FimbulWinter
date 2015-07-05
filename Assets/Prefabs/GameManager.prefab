@@ -95,7 +95,7 @@ GameObject:
   - 223: {fileID: 22329352}
   - 114: {fileID: 11455120}
   - 114: {fileID: 11494436}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .628676414, g: .710171521, b: .838235259, a: .0196078438}
+  m_BackGroundColor: {r: .627703309, g: .752469003, b: .948529422, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
