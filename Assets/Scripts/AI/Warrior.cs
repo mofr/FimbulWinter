@@ -73,7 +73,6 @@ public class Warrior : MonoBehaviour {
 		
 		if (collider.gameObject == player) {
 			Damage damage = new Damage(this.damage, character);
-			damage.canBeBlocked = false;
 			collider.gameObject.GetComponent<Damageable>().TakeDamage(damage);
 		}
 	}

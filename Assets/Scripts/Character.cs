@@ -27,7 +27,6 @@ public class Character : MonoBehaviour {
 	
 	float recoveryRemains = 0f;
 	float attackCooldown = 0f;
-	bool block = false;
 	Attack attack;
 
 	void Awake() {
@@ -55,8 +54,6 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Attack() {
-		if (block)
-			return;
 		if (attackCooldown > 0)
 			return;
 		if (recoveryRemains > 0)
@@ -66,24 +63,9 @@ public class Character : MonoBehaviour {
 		attackCooldown = attackTime;
 	}
 
-	public void Block(bool block) {
-		if (recoveryRemains > 0)
-			return;
-
-		if (this.block != block) {
-			this.block = block;
-			anim.SetBool ("Block", block);
-			movement.canMove = !block;
-		}
-	}
-
 	void TakeDamage(Damage damage) {
 		if (dead)
 			return;
-
-		if (block && damage.canBeBlocked) {
-			return;
-		}
 
 		if (damage.originator.enemy == enemy)
 			return;

@@ -56,8 +56,6 @@ public class PlayerInput : MonoBehaviour
 		if (Input.GetButton ("Fire1")) {
 			character.Attack();
 		}
-
-		character.Block (Input.GetButton ("Fire2"));
 	}
 }
 
