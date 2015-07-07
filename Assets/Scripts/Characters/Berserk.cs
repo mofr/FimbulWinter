@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Warrior : MonoBehaviour {
+public class Berserk : MonoBehaviour {
 
 	public float agroDistance = 1;
 	public float damage = 0;

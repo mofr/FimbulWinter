@@ -12,7 +12,7 @@ GameObject:
   - 58: {fileID: 5806334}
   - 114: {fileID: 11427942}
   m_Layer: 0
-  m_Name: BerserkAxe
+  m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

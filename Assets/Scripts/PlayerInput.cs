@@ -4,8 +4,8 @@ using System.Collections;
 public class PlayerInput : MonoBehaviour
 {
 	public GameObject pawn;
-	Character character;
 	CharacterMovement movement;
+	Bero bero;
 	bool jumpPressed = false;
 
 	public static PlayerInput instance;
@@ -20,12 +20,8 @@ public class PlayerInput : MonoBehaviour
 			pawn = GameObject.FindWithTag("Player");
 		}
 
-		character = pawn.GetComponent<Character>();
-		if (!character) {
-			Debug.LogError("Pawn must have Character component");
-		}
-
 		movement = pawn.GetComponent<CharacterMovement>();
+		bero = pawn.GetComponent<Bero>();
 	}
 
 	void Update() {
@@ -36,9 +32,6 @@ public class PlayerInput : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (character.dead)
-			return;
-
 		bool slipOffPlatforms = Input.GetButton ("Vertical") && Input.GetAxis ("Vertical") < 0;
 		Physics2D.IgnoreLayerCollision (Layers.characters, Layers.platform, slipOffPlatforms);
 
@@ -54,7 +47,7 @@ public class PlayerInput : MonoBehaviour
 		movement.Move (Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift));
 
 		if (Input.GetButton ("Fire1")) {
-			character.Attack();
+			bero.Attack();
 		}
 	}
 }

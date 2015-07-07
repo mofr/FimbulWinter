@@ -15,7 +15,6 @@ public class Character : MonoBehaviour {
 	public float maxHealth = 100f;
 	public bool dead = false;
 	public float recoveryTime = 1f;
-	public float attackTime = 1f;
 
 	public delegate void OnDeath();
 	public event OnDeath onDeath;
@@ -24,18 +23,16 @@ public class Character : MonoBehaviour {
 	Damageable damageable;
 	CharacterMovement movement;
 	BoxCollider2D collider;
-	
-	float recoveryRemains = 0f;
-	float attackCooldown = 0f;
-	Attack attack;
+
+	[HideInInspector]
+	public float recoveryRemains = 0f;
 
 	void Awake() {
 		anim = GetComponent<Animator>();
-		attack = GetComponentInChildren<Attack>();
 		movement = GetComponent<CharacterMovement>();
 		collider = GetComponent<BoxCollider2D>();
-
 		damageable = GetComponent<Damageable>();
+
 		damageable.OnDamage += TakeDamage;
 	}
 
@@ -49,18 +46,6 @@ public class Character : MonoBehaviour {
 
 			anim.SetFloat ("RecoveryRemains", recoveryRemains);
 		}
-
-		attackCooldown = Mathf.Max (0, attackCooldown-Time.deltaTime);
-	}
-
-	public void Attack() {
-		if (attackCooldown > 0)
-			return;
-		if (recoveryRemains > 0)
-			return;
-
-		anim.SetTrigger ("Attack");
-		attackCooldown = attackTime;
 	}
 
 	void TakeDamage(Damage damage) {
@@ -95,9 +80,5 @@ public class Character : MonoBehaviour {
 			GameObject deathEffect = Instantiate (deathEffectPrefab, collider.bounds.center, transform.rotation) as GameObject;
 			Destroy (deathEffect, 4);
 		}
-	}
-
-	void OnAttack() {
-		attack.Perform ();
 	}
 }

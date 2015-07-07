@@ -1,30 +1,31 @@
 fileFormatVersion: 2
-guid: 9855da774b2544043b231d5c21ee9c8e
-timeCreated: 1435210804
+guid: f1cbb7d2dad38fc4b8f1e17cbf13610e
+timeCreated: 1434348649
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_backSholder
-    21300002: spr_head
-    21300004: spr_frontSholder
-    21300006: spr_chest
-    21300008: spr_backArm
-    21300010: spr_abdomen
-    21300012: spr_frontArm
-    21300014: spr_backAxe
-    21300016: spr_belt
-    21300018: spr_frontAxe
-    21300020: spr_backTip
-    21300022: spr_pelvis
-    21300024: spr_frontHip
-    21300026: spr_backLeg
-    21300028: spr_frontLeg
-    21300030: spr_backFoot
-    21300032: spr_frontFoot
+    21300000: BerserkSpriteAxe
+    21300002: BerserkSpriteHead
+    21300004: BerserkSpriteShoulder
+    21300006: BerserkSpriteNeck
+    21300008: BerserkSpriteArmA
+    21300010: BerserkSpriteArmB
+    21300012: BerserkSpriteChest
+    21300014: BerserkSpriteForearmA
+    21300016: BerserkSpriteForearmB
+    21300018: BerserkSpriteAbdomen
+    21300020: BerserkSpriteHandA
+    21300022: BerserkSpriteHipB
+    21300024: BerserkSpriteBelt
+    21300026: BerserkSpriteHipA
+    21300028: BerserkSpriteLegB
+    21300030: BerserkSpriteLegA
+    21300032: BerserkSpriteFootB
+    21300034: BerserkSpriteFootA
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -46,7 +47,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -66,173 +67,183 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: spr_backSholder
+    - name: BerserkSpriteAxe
       rect:
         serializedVersion: 2
-        x: 100
-        y: 402
-        width: 34
-        height: 56
+        x: 23
+        y: 426
+        width: 57
+        height: 68
+      alignment: 9
+      pivot: {x: .900571048, y: .432513952}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteHead
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 439
+        width: 53
+        height: 58
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_head
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 416
-        width: 74
-        height: 75
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_frontSholder
+    - name: BerserkSpriteShoulder
       rect:
         serializedVersion: 2
         x: 348
-        y: 407
-        width: 48
-        height: 49
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_chest
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 335
-        width: 62
-        height: 52
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_backArm
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 290
-        width: 35
-        height: 30
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_abdomen
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 256
-        width: 52
+        y: 448
+        width: 50
         height: 40
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_frontArm
+    - name: BerserkSpriteNeck
       rect:
         serializedVersion: 2
-        x: 367
-        y: 290
-        width: 25
-        height: 42
+        x: 240
+        y: 387
+        width: 27
+        height: 17
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_backAxe
+    - name: BerserkSpriteArmA
       rect:
         serializedVersion: 2
-        x: 71
-        y: 196
-        width: 74
-        height: 54
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_belt
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 196
-        width: 52
-        height: 22
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_frontAxe
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 204
-        width: 72
+        x: 352
+        y: 356
+        width: 37
         height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_backTip
+    - name: BerserkSpriteArmB
       rect:
         serializedVersion: 2
-        x: 118
-        y: 126
-        width: 34
+        x: 56
+        y: 314
+        width: 37
         height: 42
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_pelvis
+    - name: BerserkSpriteChest
       rect:
         serializedVersion: 2
-        x: 248
-        y: 140
+        x: 223
+        y: 300
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteForearmA
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 280
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteForearmB
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 218
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteAbdomen
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 216
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteHandA
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 218
         width: 24
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_frontHip
+    - name: BerserkSpriteHipB
       rect:
         serializedVersion: 2
-        x: 348
-        y: 128
-        width: 38
-        height: 43
+        x: 105
+        y: 132
+        width: 31
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_backLeg
+    - name: BerserkSpriteBelt
       rect:
         serializedVersion: 2
-        x: 116
-        y: 64
-        width: 24
-        height: 30
+        x: 224
+        y: 125
+        width: 48
+        height: 29
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_frontLeg
+    - name: BerserkSpriteHipA
       rect:
         serializedVersion: 2
-        x: 361
-        y: 68
-        width: 27
+        x: 359
+        y: 132
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteLegB
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 67
+        width: 29
         height: 33
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_backFoot
+    - name: BerserkSpriteLegA
       rect:
         serializedVersion: 2
-        x: 115
-        y: 19
-        width: 31
-        height: 15
+        x: 365
+        y: 65
+        width: 30
+        height: 33
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spr_frontFoot
+    - name: BerserkSpriteFootB
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 12
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BerserkSpriteFootA
       rect:
         serializedVersion: 2
         x: 364
-        y: 23
-        width: 34
-        height: 15
+        y: 15
+        width: 32
+        height: 18
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

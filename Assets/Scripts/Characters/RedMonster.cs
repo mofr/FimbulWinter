@@ -57,7 +57,7 @@ public class RedMonster : MonoBehaviour {
 
 			if(distance < attackDistance) {
 				movement.LookAt(player.transform.position);
-				character.Attack();
+				//character.Attack();
 				move = 0;
 				yield return new WaitForSeconds(1.0f);
 			} else {
