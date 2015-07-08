@@ -9,6 +9,7 @@ public class Character : MonoBehaviour {
 
 	public bool enemy = false;
 	public GameObject deathEffectPrefab;
+	public GameObject takeDamageEffectPrefab;
 
 	[Header("Battle")]
 	public float health = 100f;
@@ -63,6 +64,11 @@ public class Character : MonoBehaviour {
 			anim.SetTrigger ("TakeDamage");
 			recoveryRemains = Mathf.Max(recoveryRemains, recoveryTime);
 			movement.canMove = false;
+
+			if (takeDamageEffectPrefab) {
+				GameObject takeDamageEffect = Instantiate (takeDamageEffectPrefab, collider.bounds.center, transform.rotation) as GameObject;
+				Destroy (takeDamageEffect, 4);
+			}
 		}
 	}
 	
