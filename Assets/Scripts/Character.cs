@@ -59,7 +59,7 @@ public class Character : MonoBehaviour {
 		health -= damage.amount;
 		movement.LookAt (damage.originator.transform.position);
 		if (health <= 0) {
-			Kill();
+			Kill(damage);
 		} else {
 			anim.SetTrigger ("TakeDamage");
 			recoveryRemains = Mathf.Max(recoveryRemains, recoveryTime);
@@ -72,7 +72,7 @@ public class Character : MonoBehaviour {
 		}
 	}
 	
-	public void Kill() {
+	public void Kill(Damage damage = null) {
 		dead = true;
 		gameObject.layer = LayerMask.NameToLayer("Dead");
 		anim.SetTrigger ("Death");

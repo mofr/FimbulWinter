@@ -5,11 +5,13 @@ public class Damage
 {
 	public float amount;
 	public Character originator;
+	public Vector3 point;
 
-	public Damage(float amount, Character originator)
+	public Damage(float amount, Character originator, Vector3 point)
 	{
 		this.amount = amount;
 		this.originator = originator;
+		this.point = point;
 	}
 }
 

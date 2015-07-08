@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
 		Damageable target = collider.GetComponent<Damageable>();
 		if (target)
 		{
-			target.TakeDamage(damage, originator);
+			target.TakeDamage(damage, originator, transform.position);
 
 			Rigidbody2D rigidbody = target.GetComponent<Rigidbody2D>();
 			if(rigidbody) {

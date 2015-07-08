@@ -8,5 +8,6 @@ public class Layers
 
 	static public int characters = LayerMask.NameToLayer("Characters");
 	static public int platform = LayerMask.NameToLayer("Platform");
+	static public int bodyPart = LayerMask.NameToLayer("BodyPart");
 }
 

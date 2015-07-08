@@ -15,7 +15,7 @@ public class Damageable : MonoBehaviour {
 		OnDamageAction.Invoke ();
 	}
 
-	public void TakeDamage(float amount, Character originator) {
-		TakeDamage (new Damage(amount, originator));
+	public void TakeDamage(float amount, Character originator, Vector2 point) {
+		TakeDamage (new Damage(amount, originator, point));
 	}
 }

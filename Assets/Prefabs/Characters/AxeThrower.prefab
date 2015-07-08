@@ -284,6 +284,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 456610}
   - 212: {fileID: 21297024}
+  - 114: {fileID: 11406138}
   m_Layer: 9
   m_Name: BerserkSpriteLegA
   m_TagString: Untagged
@@ -419,6 +420,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 408982}
   - 212: {fileID: 21213342}
+  - 114: {fileID: 11499940}
   m_Layer: 9
   m_Name: BerserkSpriteHandA
   m_TagString: Untagged
@@ -435,6 +437,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 434332}
   - 212: {fileID: 21218842}
+  - 114: {fileID: 11478414}
   m_Layer: 9
   m_Name: BerserkSpriteHipA
   m_TagString: Untagged
@@ -451,6 +454,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 466778}
   - 212: {fileID: 21281752}
+  - 114: {fileID: 11483202}
   m_Layer: 9
   m_Name: BerserkSpriteHipB
   m_TagString: Untagged
@@ -467,6 +471,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 401516}
   - 212: {fileID: 21212082}
+  - 114: {fileID: 11475022}
   m_Layer: 9
   m_Name: BerserkSpriteForearmA
   m_TagString: Untagged
@@ -534,6 +539,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453088}
   - 212: {fileID: 21284842}
+  - 114: {fileID: 11412252}
   m_Layer: 9
   m_Name: BerserkSpriteFootA
   m_TagString: Untagged
@@ -729,6 +735,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458602}
   - 212: {fileID: 21249514}
+  - 114: {fileID: 11497420}
   m_Layer: 9
   m_Name: BerserkSpriteArmB
   m_TagString: Untagged
@@ -793,6 +800,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 477872}
   - 212: {fileID: 21205752}
+  - 114: {fileID: 11422672}
   m_Layer: 9
   m_Name: BerserkSpriteFootB
   m_TagString: Untagged
@@ -907,6 +915,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493370}
   - 212: {fileID: 21287628}
+  - 114: {fileID: 11476444}
   m_Layer: 9
   m_Name: BerserkSpriteLegB
   m_TagString: Untagged
@@ -1081,6 +1090,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 424014}
   - 212: {fileID: 21250324}
+  - 114: {fileID: 11408174}
   m_Layer: 9
   m_Name: BerserkSpriteHead
   m_TagString: Untagged
@@ -1131,6 +1141,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 404068}
   - 212: {fileID: 21257098}
+  - 114: {fileID: 11434306}
   m_Layer: 9
   m_Name: BerserkSpriteForearmB
   m_TagString: Untagged
@@ -1337,7 +1348,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176718}
-  m_LocalRotation: {x: 5.15876302e-08, y: -2.11873044e-08, z: .376317829, w: -.926490664}
+  m_LocalRotation: {x: 4.71178652e-08, y: -5.93349314e-10, z: .376317918, w: -.926490605}
   m_LocalPosition: {x: 2.97911953e-07, y: .99999994, z: -8.23756849e-08}
   m_LocalScale: {x: .640295923, y: .640295923, z: .640295923}
   m_Children:
@@ -1543,7 +1554,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166734}
-  m_LocalRotation: {x: 1.64376956e-08, y: 6.97393574e-08, z: .895875037, w: .444306135}
+  m_LocalRotation: {x: 1.64376885e-08, y: 6.97393503e-08, z: .895875037, w: .444306254}
   m_LocalPosition: {x: 6.48404466e-07, y: 1.00000203, z: -8.68879866e-08}
   m_LocalScale: {x: 1.40052295, y: 1.40052307, z: 1.40052283}
   m_Children:
@@ -1712,7 +1723,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100820}
-  m_LocalRotation: {x: -2.10734221e-08, y: 6.90140211e-15, z: .825591803, w: -.564267814}
+  m_LocalRotation: {x: 4.95774694e-15, y: 3.30215604e-15, z: .825591683, w: -.564267993}
   m_LocalPosition: {x: -1.81109129e-07, y: .99999994, z: -6.95923319e-08}
   m_LocalScale: {x: 4.86161137, y: 4.86161137, z: 4.86161089}
   m_Children:
@@ -2201,6 +2212,39 @@ MonoBehaviour:
   limitBones: 1
   angleLimitTransform: []
   angleLimits: []
+--- !u!114 &11406138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11408174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11412252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11415128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2237,6 +2281,17 @@ MonoBehaviour:
   boneToAimAt: {fileID: 464218}
   InEditBoneMode: 0
   _newSelection: []
+--- !u!114 &11422672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11423136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2338,6 +2393,17 @@ MonoBehaviour:
   boneToAimAt: {fileID: 419116}
   InEditBoneMode: 0
   _newSelection: []
+--- !u!114 &11434306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11434482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2350,7 +2416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 151846, guid: 22ee4c3fa79533e4084f980e5ed1c739, type: 2}
-  projectileSpeed: 30
+  projectileSpeed: 15
   damage: 15
 --- !u!114 &11436710
 MonoBehaviour:
@@ -2622,11 +2688,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: 1
   deathEffectPrefab: {fileID: 108368, guid: 1925ba0d966e29544a70dc836a49ee80, type: 2}
+  takeDamageEffectPrefab: {fileID: 0}
   health: 10
   maxHealth: 10
   dead: 0
   recoveryTime: 1
-  attackTime: 1
+  recoveryRemains: 0
 --- !u!114 &11465414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2685,6 +2752,50 @@ MonoBehaviour:
   limitBones: 1
   angleLimitTransform: []
   angleLimits: []
+--- !u!114 &11475022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11476444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11478414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11483202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11484402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2771,6 +2882,28 @@ MonoBehaviour:
   limitBones: 1
   angleLimitTransform: []
   angleLimits: []
+--- !u!114 &11497420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11499940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fa56aee168c844a2786561026a789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200422
 SpriteRenderer:
   m_ObjectHideFlags: 1

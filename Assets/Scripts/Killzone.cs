@@ -9,5 +9,8 @@ public class Killzone : MonoBehaviour {
 			return;
 
 		character.Kill ();
+		if (BodyExplosion.Explode (character.gameObject, new Vector2(0, 1))) {
+			Destroy (character.gameObject);
+		}
 	}
 }
