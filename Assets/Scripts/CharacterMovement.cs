@@ -60,6 +60,9 @@ public class CharacterMovement : MonoBehaviour
 		anim.SetFloat ("Speed", Mathf.Abs(rigidBody.velocity.x)/runSpeed);
 		anim.SetFloat ("vSpeed", rigidBody.velocity.y);
 		anim.SetBool ("Grounded", _grounded);
+		if (!_grounded) {
+			anim.ResetTrigger("Jump");
+		}
 	}
 	
 	public void Jump() {
