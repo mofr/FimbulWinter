@@ -3620,7 +3620,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: .266666681
+  - time: .100000001
+    functionName: AttackSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: .233333334
     functionName: OnAttack
     data: 
     objectReferenceParameter: {fileID: 0}

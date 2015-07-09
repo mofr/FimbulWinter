@@ -7,9 +7,13 @@ public class Bero : MonoBehaviour {
 	public float attackTime = 1f;
 	public BoxCollider2D attackCollider;
 
+	[Header("Sounds")]
+	public AudioClip attackSound;
+
 	Character character;
 	CharacterMovement characterMovement;
 	Animator anim;
+	AudioSource audioSource;
 
 	float attackCooldown = 0f;
 	
@@ -17,6 +21,7 @@ public class Bero : MonoBehaviour {
 		character = GetComponent<Character>();
 		characterMovement = GetComponent<CharacterMovement>();
 		anim = GetComponent<Animator>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	void Update () {
@@ -45,5 +50,9 @@ public class Bero : MonoBehaviour {
 			
 			damageable.TakeDamage(attackDamage, character, attackCollider.bounds.center);
 		}
+	}
+
+	void AttackSound() {
+		audioSource.PlayOneShot (attackSound);
 	}
 }
