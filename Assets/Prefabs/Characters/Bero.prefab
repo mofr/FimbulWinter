@@ -176,6 +176,7 @@ GameObject:
   - 114: {fileID: 11496100}
   - 114: {fileID: 11487268}
   - 114: {fileID: 11471070}
+  - 82: {fileID: 8267118}
   m_Layer: 9
   m_Name: Bero
   m_TagString: Player
@@ -2042,6 +2043,75 @@ BoxCollider2D:
   m_Offset: {x: 0, y: .678917944}
   serializedVersion: 2
   m_Size: {x: .50000304, y: 1.49400413}
+--- !u!82 &8267118
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118976}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9565800
 Animator:
   serializedVersion: 3
@@ -2252,6 +2322,16 @@ MonoBehaviour:
   deathEffectPrefab: {fileID: 108368, guid: 1925ba0d966e29544a70dc836a49ee80, type: 2}
   takeDamageEffectPrefab: {fileID: 108368, guid: f7f0d5b5fcb68b7498c8497c0ff45e91,
     type: 2}
+  damageSound:
+  - {fileID: 8300000, guid: 4e4b1fd9b94481d4eb997217c28151b7, type: 3}
+  - {fileID: 8300000, guid: 2362c74cee96b9443874866ea0c18e1a, type: 3}
+  deathSound:
+  - {fileID: 8300000, guid: ede990d0e791592459ac45b153149026, type: 3}
+  - {fileID: 8300000, guid: a6f5d241e51237d40a6c7e7f4370fb98, type: 3}
+  - {fileID: 8300000, guid: 04d975725757fed49841b92d71a17385, type: 3}
+  - {fileID: 8300000, guid: f66a53cabfec02c4b99f6366fffa713b, type: 3}
+  - {fileID: 8300000, guid: cc85fdec50a05164db19c762d5091a41, type: 3}
+  - {fileID: 8300000, guid: f6da916f9400e2c46a9bf66c6ab87e3b, type: 3}
   health: 100
   maxHealth: 100
   dead: 0
@@ -2548,6 +2628,8 @@ MonoBehaviour:
   attackDamage: 10
   attackTime: .300000012
   attackCollider: {fileID: 6110692}
+  attackSound: {fileID: 8300000, guid: 2c83556f54fa8cf4c8a983bd57de15db, type: 3}
+  attackHitSound: {fileID: 0}
 --- !u!114 &11479628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2679,6 +2761,14 @@ MonoBehaviour:
   runSpeed: 8
   jumpForce: 700
   jumpEffectPrefab: {fileID: 103246, guid: a920a28dc2b07924e94eeff9584f480e, type: 2}
+  footsteps:
+  - {fileID: 8300000, guid: b3f6f646ea98dac4cbfa526a46932bab, type: 3}
+  - {fileID: 8300000, guid: 042870aa8d4e52544adce30691bc3e51, type: 3}
+  - {fileID: 8300000, guid: 1e85008b197ab724f94a01547f4bfe4b, type: 3}
+  - {fileID: 8300000, guid: 953a84ac2877a7a4480af13b21383aa4, type: 3}
+  jumpSound:
+  - {fileID: 8300000, guid: f3f40f0b6b3263c419a45ecb8ea89b28, type: 3}
+  landingSound: {fileID: 8300000, guid: 965ac6161b5e50342af7362856e1d308, type: 3}
   canMove: 1
 --- !u!114 &11490444
 MonoBehaviour:
@@ -4192,6 +4282,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: jumpSound.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deathSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageSound.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
@@ -4211,6 +4313,14 @@ Prefab:
       propertyPath: maxHealth
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: takeDamageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 42c4aa5ce43a5ab408260761bd06cfde, type: 3}
+    - target: {fileID: 0}
+      propertyPath: landingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 965ac6161b5e50342af7362856e1d308, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118976}

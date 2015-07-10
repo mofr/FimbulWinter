@@ -9,6 +9,7 @@ public class Bero : MonoBehaviour {
 
 	[Header("Sounds")]
 	public AudioClip attackSound;
+	public AudioClip attackHitSound;
 
 	Character character;
 	CharacterMovement characterMovement;

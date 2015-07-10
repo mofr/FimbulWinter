@@ -11,6 +11,9 @@ public class CharacterMovement : MonoBehaviour
 	public float jumpForce = 350f;
 
 	public GameObject jumpEffectPrefab;
+	public AudioClip[] footsteps;
+	public AudioClip[] jumpSound;
+	public AudioClip landingSound;
 
 	[HideInInspector]
 	public bool canMove = true;
@@ -35,6 +38,7 @@ public class CharacterMovement : MonoBehaviour
 	Rigidbody2D rigidBody;
 	Puppet2D_GlobalControl puppet;
 	BoxCollider2D collider;
+	AudioSource audioSource;
 
 	bool facingRight;
 	bool _grounded = false;
@@ -49,6 +53,7 @@ public class CharacterMovement : MonoBehaviour
 		rigidBody = GetComponent<Rigidbody2D>();
 		puppet = GetComponent<Puppet2D_GlobalControl>();
 		collider = GetComponent<BoxCollider2D>();
+		audioSource = GetComponent<AudioSource>();
 
 		if(puppet) {
 			facingRight = puppet.flip;
@@ -109,8 +114,16 @@ public class CharacterMovement : MonoBehaviour
 			transform.localScale = theScale;
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		CheckGround (collision);
+	}
 	
 	void OnCollisionStay2D(Collision2D collision) {
+		CheckGround (collision);
+	}
+
+	void CheckGround(Collision2D collision) {
 		if (collision.gameObject == gameObject)
 			return;
 		
@@ -128,7 +141,9 @@ public class CharacterMovement : MonoBehaviour
 				_groundedOn = collision.collider;
 				if(!_grounded) {
 					_grounded = true;
-					GroundedEffect ();
+					if(collision.relativeVelocity.y < 0) {
+						GroundedEffect (collision);
+					}
 				}
 			}
 			if(Mathf.Abs(contact.normal.x) > Mathf.Abs (contact.normal.y)){
@@ -158,6 +173,10 @@ public class CharacterMovement : MonoBehaviour
 	void OnJump() {
 		rigidBody.AddForce(new Vector2(0f, jumpForce));
 		JumpEffect ();
+
+		if (jumpSound.Length > 0) {
+			audioSource.PlayOneShot(jumpSound[Random.Range (0, jumpSound.Length)]);
+		}
 	}
 
 	void JumpEffect() {
@@ -168,12 +187,23 @@ public class CharacterMovement : MonoBehaviour
 		Destroy (jumpEffect, 2);
 	}
 
-	void GroundedEffect() {
-		if (!jumpEffectPrefab)
-			return;
-		
-		GameObject jumpEffect = Instantiate (jumpEffectPrefab, transform.position, transform.rotation) as GameObject;
-		Destroy (jumpEffect, 2);
+	void GroundedEffect(Collision2D collision) {
+		if (jumpEffectPrefab) {
+			GameObject jumpEffect = Instantiate (jumpEffectPrefab, transform.position, transform.rotation) as GameObject;
+			Destroy (jumpEffect, 2);
+		}
+
+		if (landingSound) {
+			float volume = Mathf.Clamp (collision.relativeVelocity.magnitude/10, 0, 1);
+			audioSource.PlayOneShot (landingSound, volume);
+		}
+	}
+
+	void OnFootstep() {
+		if (footsteps.Length > 0) {
+			float volume = Mathf.Clamp (rigidBody.velocity.magnitude / runSpeed, 0f, 1f);
+			audioSource.PlayOneShot (footsteps [Random.Range (0, footsteps.Length)], volume);
+		}
 	}
 }
 

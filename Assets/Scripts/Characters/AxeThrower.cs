@@ -7,6 +7,8 @@ public class AxeThrower : MonoBehaviour
 	public float projectileSpeed;
 	public float damage;
 
+	public AudioClip axeThrowSound;
+
 	public bool attacking {
 		set {
 			if(value == _attacking) 
@@ -26,6 +28,8 @@ public class AxeThrower : MonoBehaviour
 	Animator anim;
 	GameObject player;
 	Character playerCharacter;
+	AudioSource audioSource;
+
 	bool _attacking = false;
 	
 	void Start ()
@@ -35,6 +39,7 @@ public class AxeThrower : MonoBehaviour
 		anim = GetComponent<Animator>();
 		player = GameObject.FindWithTag("Player");
 		playerCharacter = player.GetComponent<Character>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	IEnumerator Attacking()
@@ -48,6 +53,8 @@ public class AxeThrower : MonoBehaviour
 	}
 
 	void OnAttack() {
+		audioSource.PlayOneShot (axeThrowSound);
+
 		GameObject projectile = Instantiate (projectilePrefab, transform.position, new Quaternion()) as GameObject;
 		Destroy (projectile, 10);
 		

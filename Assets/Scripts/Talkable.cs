@@ -9,6 +9,7 @@ public class Talkable : MonoBehaviour {
 	public GameObject bubblePrefab;
 	public bool autoStart = false;
 	public UnityEvent action;
+	public AudioClip startSound;
 
 	[Serializable]
 	public class Phrase

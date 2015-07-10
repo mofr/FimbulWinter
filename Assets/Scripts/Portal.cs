@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class Portal : MonoBehaviour {
 
 	public Transform destination;
+	public AudioClip sound;
 
+	AudioSource audioSource;
 	GameObject target;
 	Canvas usageKey;
 	bool trasfering = false;
+
+	void Awake() {
+		audioSource = GetComponent<AudioSource>();
+	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.tag != "Player")
@@ -33,6 +40,8 @@ public class Portal : MonoBehaviour {
 	}
 
 	IEnumerator Transfer(GameObject target) {
+		audioSource.PlayOneShot (sound);
+
 		trasfering = true;
 
 		float duration = 0.25f;

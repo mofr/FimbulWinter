@@ -10,6 +10,8 @@ public class Character : MonoBehaviour {
 	public bool enemy = false;
 	public GameObject deathEffectPrefab;
 	public GameObject takeDamageEffectPrefab;
+	public AudioClip[] damageSound;
+	public AudioClip[] deathSound;
 
 	[Header("Battle")]
 	public float health = 100f;
@@ -24,6 +26,7 @@ public class Character : MonoBehaviour {
 	Damageable damageable;
 	CharacterMovement movement;
 	BoxCollider2D collider;
+	AudioSource audioSource;
 
 	[HideInInspector]
 	public float recoveryRemains = 0f;
@@ -33,6 +36,7 @@ public class Character : MonoBehaviour {
 		movement = GetComponent<CharacterMovement>();
 		collider = GetComponent<BoxCollider2D>();
 		damageable = GetComponent<Damageable>();
+		audioSource = GetComponent<AudioSource>();
 
 		damageable.OnDamage += TakeDamage;
 	}
@@ -69,6 +73,10 @@ public class Character : MonoBehaviour {
 				GameObject takeDamageEffect = Instantiate (takeDamageEffectPrefab, collider.bounds.center, transform.rotation) as GameObject;
 				Destroy (takeDamageEffect, 4);
 			}
+
+			if(damageSound.Length > 0) {
+				audioSource.PlayOneShot(damageSound[Random.Range(0, damageSound.Length)]);
+			}
 		}
 	}
 	
@@ -85,6 +93,10 @@ public class Character : MonoBehaviour {
 		if (deathEffectPrefab) {
 			GameObject deathEffect = Instantiate (deathEffectPrefab, collider.bounds.center, transform.rotation) as GameObject;
 			Destroy (deathEffect, 4);
+		}
+
+		if (deathSound.Length > 0) {
+			audioSource.PlayOneShot (deathSound [Random.Range (0, deathSound.Length)]);
 		}
 	}
 }
