@@ -7,8 +7,6 @@ public class AxeThrower : MonoBehaviour
 	public float projectileSpeed;
 	public float damage;
 
-	public AudioClip axeThrowSound;
-
 	public bool attacking {
 		set {
 			if(value == _attacking) 
@@ -53,8 +51,6 @@ public class AxeThrower : MonoBehaviour
 	}
 
 	void OnAttack() {
-		audioSource.PlayOneShot (axeThrowSound);
-
 		GameObject projectile = Instantiate (projectilePrefab, transform.position, new Quaternion()) as GameObject;
 		Destroy (projectile, 10);
 		
