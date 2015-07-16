@@ -6,6 +6,7 @@ public class Bero : MonoBehaviour {
 	public float attackDamage = 10;
 	public float attackTime = 1f;
 	public BoxCollider2D attackCollider;
+	public BoxCollider2D thrustCollider;
 
 	[Header("Sounds")]
 	public AudioClip attackSound;
@@ -34,10 +35,23 @@ public class Bero : MonoBehaviour {
 			return;
 		if (character.recoveryRemains > 0)
 			return;
-		if (!characterMovement.grounded)
+		if (!characterMovement.grounded) {
+			Thrust();
 			return;
+		}
 		
 		anim.SetTrigger ("Attack");
+		attackCooldown = attackTime;
+	}
+
+	public void Thrust ()
+	{
+		if (attackCooldown > 0)
+			return;
+		if (character.recoveryRemains > 0)
+			return;
+		
+		anim.SetTrigger ("Thrust");
 		attackCooldown = attackTime;
 	}
 
@@ -50,6 +64,18 @@ public class Bero : MonoBehaviour {
 			}
 			
 			damageable.TakeDamage(attackDamage, character, attackCollider.bounds.center);
+		}
+	}
+
+	void OnThrust() {
+		Collider2D[] targets = Physics2D.OverlapAreaAll(thrustCollider.bounds.min, thrustCollider.bounds.max);
+		foreach(Collider2D targetCollider in targets) {
+			Damageable damageable = targetCollider.GetComponent<Damageable>();
+			if(!damageable || !damageable.enabled) {
+				continue;
+			}
+			
+			damageable.TakeDamage(attackDamage, character, thrustCollider.bounds.center);
 		}
 	}
 

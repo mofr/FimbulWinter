@@ -47,7 +47,11 @@ public class PlayerInput : MonoBehaviour
 		movement.Move (Input.GetAxis("Horizontal"), Input.GetKey(KeyCode.LeftShift));
 
 		if (Input.GetButton ("Fire1")) {
-			bero.Attack();
+			if(Input.GetButton ("Horizontal")) {
+				bero.Thrust();
+			} else {
+				bero.Attack();
+			}
 		}
 	}
 }
