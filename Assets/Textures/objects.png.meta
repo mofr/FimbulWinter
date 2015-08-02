@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: df72d539dfc585a4ea53d4623b84f490
-timeCreated: 1438424499
+timeCreated: 1438520036
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,7 @@ TextureImporter:
     21300006: Tower
     21300008: objects_4
     21300010: ImpaledCorpse
+    21300012: WoodLog
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -112,6 +113,16 @@ TextureImporter:
         y: 94
         width: 58
         height: 200
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WoodLog
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 573
+        width: 403
+        height: 84
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

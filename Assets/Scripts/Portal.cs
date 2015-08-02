@@ -50,6 +50,10 @@ public class Portal : MonoBehaviour {
 
 		target.transform.SetParent (destination.parent);
 		target.transform.position = destination.position;
+		CharacterMovement characterMovement = target.GetComponent<CharacterMovement>();
+		if (characterMovement) {
+			characterMovement.LookAt(destination.position + destination.forward);
+		}
 
 		ScreenFader.FadeToClear (duration);
 
@@ -60,5 +64,18 @@ public class Portal : MonoBehaviour {
 		if (target && !trasfering && Input.GetButtonDown ("Use")) {
 			StartCoroutine(Transfer(target));
 		}
+	}
+
+	void OnDrawGizmos() {
+		Gizmos.DrawIcon (transform.position, "portal");
+	}
+
+	void OnDrawGizmosSelected() {
+		if (!destination)
+			return;
+
+		Gizmos.color = Color.white;
+		Gizmos.DrawLine (transform.position, destination.position);
+		Gizmos.DrawLine (destination.position, destination.position + destination.forward);
 	}
 }
