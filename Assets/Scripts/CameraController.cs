@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
 	Camera camera;
 	CameraLimits limits;
 	Transform targetParent;
+	Vector3 lastTargetPos;
 
 	void Start () {
 		camera = GetComponent<Camera> ();
@@ -20,13 +21,19 @@ public class CameraController : MonoBehaviour {
 		}
 
 		targetParent = target.parent;
+		lastTargetPos = target.position;
 		limits = target.parent.GetComponentInParent<CameraLimits>();
 		transform.position = CalcTargetPos();
 	}
 
 	void LateUpdate () {
 		CameraLimits newLimits = limits;
-		if (target.parent != targetParent) {
+
+		if (target) {
+			lastTargetPos = target.position;
+		}
+
+		if (target && target.parent != targetParent) {
 			targetParent = target.parent;
 			newLimits = target.parent.GetComponentInParent<CameraLimits> ();
 		}
@@ -41,7 +48,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	Vector3 CalcTargetPos() {
-		Vector3 targetPos = target.position; 
+		Vector3 targetPos = lastTargetPos; 
 		targetPos.z = transform.position.z;
 		targetPos += (Vector3)offset;
 

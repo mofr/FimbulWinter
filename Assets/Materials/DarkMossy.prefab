@@ -80,10 +80,10 @@ MonoBehaviour:
       y: 0
       width: .5
       height: .125
-    capOffset: -1.24000001
+    capOffset: -1.33000004
   - applyTo: 1
     zOffset: 0
-    yOffset: 0
+    yOffset: .109999999
     leftCap:
       serializedVersion: 2
       x: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
       y: .125
       width: .5
       height: .125
-    capOffset: -1.24000001
+    capOffset: -1.26999998
   - applyTo: 2
     zOffset: 0
     yOffset: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
       y: .375
       width: 1
       height: .125
-    capOffset: -1.29999995
+    capOffset: -1.37
   isPixel: 0
 --- !u!1001 &100100000
 Prefab:
@@ -287,7 +287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[2].rightCap.x
-      value: .994140625
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[2].leftCap.y
@@ -347,7 +347,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[1].yOffset
-      value: 0
+      value: .109999999
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[0].yOffset
@@ -355,7 +355,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[0].capOffset
-      value: -1.24000001
+      value: -1.33000004
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[1].zOffset
@@ -363,7 +363,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[1].capOffset
-      value: -1.24000001
+      value: -1.26999998
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[0].rightCap.width
@@ -415,7 +415,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[3].capOffset
-      value: -1.29999995
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[0].innerLeftCap.width
@@ -499,6 +499,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: descriptors.Array.data[0].body.Array.data[0].x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[2].leftCap.width
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[2].leftCap.height
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[2].rightCap.width
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[2].rightCap.height
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[2].body.Array.data[1].width
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: descriptors.Array.data[2].body.Array.data[1].x
       value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -20,7 +20,7 @@ TagManager:
   - Ground
   - Platform
   - BodyPart
-  - 
+  - Object
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 3423386231
+    locked: 0
+  - name: Terrain
+    uniqueID: 743343425
     locked: 0
   - name: Default
     uniqueID: 0

@@ -33,7 +33,7 @@ public class Berserk : MonoBehaviour {
 	}
 
 	IEnumerator WaitForPlayer() {
-		while (true) {
+		while (player) {
 			float dist = (player.transform.position - transform.position).magnitude;
 			if (dist < agroDistance) {
 				StartCoroutine ("Fight");
@@ -68,7 +68,7 @@ public class Berserk : MonoBehaviour {
 			move = -move;
 
 		if (movement.grounded) {
-			RaycastHit2D hit = Physics2D.Raycast (collider.bounds.center, new Vector3 (3 * move, -1, 0), Mathf.Infinity, Layers.groundMask);
+			RaycastHit2D hit = Physics2D.Linecast (collider.bounds.center, collider.bounds.center+new Vector3 (4 * move, -1, 0), Layers.groundMask);
 			if (Mathf.Abs (hit.normal.x) > 0.1) {
 				movement.Jump ();
 			}
@@ -78,7 +78,7 @@ public class Berserk : MonoBehaviour {
 	}
 
 	void Update() {
-		Debug.DrawRay (collider.bounds.center, new Vector3 (3 * move, -1, 0));
+		Debug.DrawLine (collider.bounds.center, collider.bounds.center+new Vector3 (4 * move, -1, 0));
 	}
 
 	void OnAxeSwing() {

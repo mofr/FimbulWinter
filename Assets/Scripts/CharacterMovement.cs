@@ -146,7 +146,7 @@ public class CharacterMovement : MonoBehaviour
 					}
 				}
 			}
-			if(Mathf.Abs(contact.normal.x) > Mathf.Abs (contact.normal.y)){
+			if(Mathf.Abs(contact.normal.x) > Mathf.Abs (contact.normal.y) && collision.gameObject.layer != Layers.objects){
 				if(contact.normal.x < 0) {
 					_rightWall = collision.collider;
 				}
