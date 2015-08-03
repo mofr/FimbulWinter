@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: df72d539dfc585a4ea53d4623b84f490
-timeCreated: 1438520036
+timeCreated: 1438595544
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,7 @@ TextureImporter:
     21300008: objects_4
     21300010: ImpaledCorpse
     21300012: WoodLog
+    21300014: RoadSign
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -123,6 +124,16 @@ TextureImporter:
         y: 573
         width: 403
         height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RoadSign
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 722
+        width: 186
+        height: 162
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
