@@ -69,7 +69,7 @@ public class Berserk : MonoBehaviour {
 
 		if (movement.grounded) {
 			RaycastHit2D hit = Physics2D.Linecast (collider.bounds.center, collider.bounds.center+new Vector3 (4 * move, -1, 0), Layers.groundMask);
-			if (Mathf.Abs (hit.normal.x) > 0.1) {
+			if (Mathf.Abs (hit.normal.x) > 0.4) {
 				movement.Jump ();
 			}
 		}

@@ -79,6 +79,11 @@ public class Character : MonoBehaviour {
 			}
 		}
 	}
+
+	public void Heal (float healAmount)
+	{
+		health = Mathf.Min (maxHealth, health + healAmount);
+	}
 	
 	public void Kill(Damage damage = null) {
 		dead = true;
