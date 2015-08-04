@@ -3061,6 +3061,9 @@ MonoBehaviour:
   axeSwingSound:
   - {fileID: 8300000, guid: 4ab60d41c0dfaa341ba601f55158c847, type: 3}
   - {fileID: 8300000, guid: 48377d4ed30738c45af6fb7f7f6a3c75, type: 3}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4097
 --- !u!114 &11494534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4677,6 +4680,10 @@ Prefab:
       propertyPath: footsteps.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: ba92a8fb89d9b4c44a9cb1e477803c61, type: 3}
+    - target: {fileID: 0}
+      propertyPath: groundMask.m_Bits
+      value: 4097
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129846}

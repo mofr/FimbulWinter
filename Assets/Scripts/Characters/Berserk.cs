@@ -46,7 +46,9 @@ public class Berserk : MonoBehaviour {
 
 	IEnumerator Fight() {
 		while (!playerCharacter.dead && !character.dead) {
-			move = Mathf.Sign(player.transform.position.x - transform.position.x);
+			if(movement.grounded) {
+				move = Mathf.Sign(player.transform.position.x - transform.position.x);
+			}
 			yield return new WaitForSeconds(Random.Range (0.7f, 1.5f));
 		}
 	}
@@ -68,8 +70,15 @@ public class Berserk : MonoBehaviour {
 			move = -move;
 
 		if (movement.grounded) {
+			//check vertical obstacle
 			RaycastHit2D hit = Physics2D.Linecast (collider.bounds.center, collider.bounds.center+new Vector3 (4 * move, -1, 0), Layers.groundMask);
-			if (Mathf.Abs (hit.normal.x) > 0.4) {
+			if (hit.collider && Mathf.Abs (hit.normal.x) > 0.4) {
+				movement.Jump ();
+			}
+
+			//check floor holes
+			hit = Physics2D.Linecast (collider.bounds.center, collider.bounds.center+new Vector3 (0.5f * move, -1, 0), Layers.groundMask);
+			if(!hit.collider) {
 				movement.Jump ();
 			}
 		}
@@ -79,6 +88,7 @@ public class Berserk : MonoBehaviour {
 
 	void Update() {
 		Debug.DrawLine (collider.bounds.center, collider.bounds.center+new Vector3 (4 * move, -1, 0));
+		Debug.DrawLine (collider.bounds.center, collider.bounds.center+new Vector3 (0.5f * move, -1, 0));
 	}
 
 	void OnAxeSwing() {

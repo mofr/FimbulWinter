@@ -8,6 +8,7 @@ public class Portal : MonoBehaviour {
 	public AudioClip sound;
 
 	AudioSource audioSource;
+
 	GameObject target;
 	Canvas usageKey;
 	bool trasfering = false;
@@ -67,7 +68,7 @@ public class Portal : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
-		Gizmos.DrawIcon (transform.position, "portal");
+		Gizmos.DrawIcon (GetComponent<Collider2D>().bounds.center, "portal");
 	}
 
 	void OnDrawGizmosSelected() {
@@ -75,7 +76,7 @@ public class Portal : MonoBehaviour {
 			return;
 
 		Gizmos.color = Color.white;
-		Gizmos.DrawLine (transform.position, destination.position);
+		Gizmos.DrawLine (GetComponent<Collider2D>().bounds.center, destination.position);
 		Gizmos.DrawLine (destination.position, destination.position + destination.forward);
 	}
 }

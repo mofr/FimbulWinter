@@ -14,7 +14,7 @@ GameObject:
   - 95: {fileID: 9526288}
   - 114: {fileID: 11419200}
   - 61: {fileID: 6177730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
