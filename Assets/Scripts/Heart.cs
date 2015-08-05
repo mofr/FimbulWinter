@@ -7,12 +7,6 @@ public class Heart : MonoBehaviour {
 	public AudioClip pickupSound;
 	public GameObject pickupEffectPrefab;
 
-	AudioSource audioSource;
-
-	void Awake() {
-		audioSource = GetComponent<AudioSource>();
-	}
-
 	void OnTriggerEnter2D(Collider2D inCollider) {
 		if (inCollider.tag != "Player")
 			return;

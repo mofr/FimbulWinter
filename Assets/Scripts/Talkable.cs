@@ -87,4 +87,8 @@ public class Talkable : MonoBehaviour {
 			}
 		}
 	}
+
+	void OnDrawGizmos() {
+		Gizmos.DrawIcon (GetComponent<Collider2D>().bounds.center, "Speech");
+	}
 }
