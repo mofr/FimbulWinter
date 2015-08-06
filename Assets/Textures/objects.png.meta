@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: df72d539dfc585a4ea53d4623b84f490
-timeCreated: 1438595544
+timeCreated: 1438864282
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,7 @@ TextureImporter:
     21300010: ImpaledCorpse
     21300012: WoodLog
     21300014: RoadSign
+    21300016: TorchLong
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -134,6 +135,16 @@ TextureImporter:
         y: 722
         width: 186
         height: 162
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TorchLong
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 724
+        width: 16
+        height: 154
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
