@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 435916}
   - 212: {fileID: 21256322}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves2Front (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 462556}
   - 212: {fileID: 21234334}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves2Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402376}
   - 212: {fileID: 21259212}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves2Back (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474246}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 450366}
   - 212: {fileID: 21235510}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves1Back (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401210}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 436804}
   - 212: {fileID: 21242674}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves1Front (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491856}
   - 212: {fileID: 21262384}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves1Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 498916}
   - 212: {fileID: 21218074}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves1Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493012}
   - 212: {fileID: 21264120}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waves2Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 476398}
   - 114: {fileID: 11496908}
-  m_Layer: 0
+  - 61: {fileID: 6153682}
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.01999998, z: 0}
+  m_LocalPosition: {x: -33.5299988, y: -8.30000019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 474246}
@@ -316,6 +317,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 474246}
   m_RootOrder: 0
+--- !u!61 &6153682
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193880}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 9.60000038, y: -2.8682251}
+  serializedVersion: 2
+  m_Size: {x: 38.403492, y: 4.2233119}
 --- !u!114 &11496908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,6 +386,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 0
+  effectPrefab: {fileID: 120224, guid: ea207f469eb8f2449aef1d38e9d65f1a, type: 2}
 --- !u!212 &21218074
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -602,6 +617,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: darkAnim.m_Curve.Array.data[2].time
       value: 1.34780729
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: effectPrefab
+      value: 
+      objectReference: {fileID: 120224, guid: ea207f469eb8f2449aef1d38e9d65f1a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -86,14 +86,7 @@ public class Character : MonoBehaviour {
 	}
 	
 	public void Kill(Damage damage = null) {
-		dead = true;
-		gameObject.layer = LayerMask.NameToLayer("Dead");
-		anim.SetTrigger ("Death");
-		damageable.enabled = false;
-		movement.canMove = false;
-
-		if(onDeath != null)
-			onDeath ();
+		KillSilently ();
 
 		if (deathEffectPrefab) {
 			GameObject deathEffect = Instantiate (deathEffectPrefab, collider.bounds.center, transform.rotation) as GameObject;
@@ -103,5 +96,16 @@ public class Character : MonoBehaviour {
 		if (deathSound.Length > 0) {
 			audioSource.PlayOneShot (deathSound [Random.Range (0, deathSound.Length)]);
 		}
+	}
+
+	public void KillSilently() {
+		dead = true;
+		gameObject.layer = LayerMask.NameToLayer("Dead");
+		damageable.enabled = false;
+		movement.canMove = false;
+		anim.SetTrigger ("Death");
+		
+		if(onDeath != null)
+			onDeath ();
 	}
 }
