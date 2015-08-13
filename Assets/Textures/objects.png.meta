@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: df72d539dfc585a4ea53d4623b84f490
-timeCreated: 1438864282
+timeCreated: 1439487216
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -81,10 +81,10 @@ TextureImporter:
     - name: Barrel
       rect:
         serializedVersion: 2
-        x: 456
+        x: 452
         y: 446
-        width: 95
-        height: 115
+        width: 104
+        height: 116
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
