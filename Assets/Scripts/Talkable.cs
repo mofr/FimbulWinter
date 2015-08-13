@@ -8,6 +8,7 @@ public class Talkable : MonoBehaviour {
 	
 	public GameObject bubblePrefab;
 	public bool autoStart = false;
+	public UnityEvent onStart;
 	public UnityEvent action;
 	public AudioClip startSound;
 
@@ -46,6 +47,8 @@ public class Talkable : MonoBehaviour {
 	}
 
 	public void StartConversation() {
+		onStart.Invoke ();
+
 		opened = true;
 		bubble = Instantiate (bubblePrefab).GetComponent<SpeechBubble>();
 		bubble.transform.SetParent(gameObject.transform, false);
@@ -89,6 +92,11 @@ public class Talkable : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
-		Gizmos.DrawIcon (GetComponent<Collider2D>().bounds.center, "Speech");
+		Collider2D collider = GetComponent<Collider2D> ();
+		Vector3 pos = transform.position;
+		if (collider) {
+			pos = collider.bounds.center;
+		}
+		Gizmos.DrawIcon (pos, "Speech");
 	}
 }

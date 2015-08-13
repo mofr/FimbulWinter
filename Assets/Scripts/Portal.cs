@@ -1,35 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(AudioSource))]
 public class Portal : MonoBehaviour {
 
 	public Transform destination;
 	public AudioClip sound;
-
-	AudioSource audioSource;
+	public bool autoTrigger = false;
 
 	GameObject target;
 	Canvas usageKey;
-	bool trasfering = false;
-
-	void Awake() {
-		audioSource = GetComponent<AudioSource>();
-	}
+	bool transfering = false;
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.tag != "Player")
 			return;
-
+		
 		target = collider.gameObject;
 
-		if (!usageKey) {
-			usageKey = Instantiate(GUIManager.instance.usageKeyPrefab);
-			usageKey.transform.localPosition = new Vector2(0, 2.1f);
-			usageKey.transform.SetParent(transform, false);
-		}
+		if (autoTrigger) {
+			StartTransfer();
+		} else {
+			if (!usageKey) {
+				usageKey = Instantiate (GUIManager.instance.usageKeyPrefab);
+				usageKey.transform.localPosition = new Vector2 (0, 2.1f);
+				usageKey.transform.SetParent (transform, false);
+			}
 
-		usageKey.enabled = true;
+			usageKey.enabled = true;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D collider) {
@@ -37,13 +35,21 @@ public class Portal : MonoBehaviour {
 			return;
 
 		target = null;
-		usageKey.enabled = false;
+		if (usageKey) {
+			usageKey.enabled = false;
+		}
+	}
+
+	void StartTransfer() {
+		if (target && !transfering) {
+			StartCoroutine(Transfer(target));
+		}
 	}
 
 	IEnumerator Transfer(GameObject target) {
-		audioSource.PlayOneShot (sound);
+		AudioSource.PlayClipAtPoint (sound, transform.position);
 
-		trasfering = true;
+		transfering = true;
 
 		float duration = 0.25f;
 		ScreenFader.FadeToBlack (duration);
@@ -58,12 +64,12 @@ public class Portal : MonoBehaviour {
 
 		ScreenFader.FadeToClear (duration);
 
-		trasfering = false;
+		transfering = false;
 	}
 
 	void Update() {
-		if (target && !trasfering && Input.GetButtonDown ("Use")) {
-			StartCoroutine(Transfer(target));
+		if ( Input.GetButtonDown ("Use") ) {
+			StartTransfer();
 		}
 	}
 
