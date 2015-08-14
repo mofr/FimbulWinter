@@ -30,15 +30,13 @@ public class CameraController : MonoBehaviour {
 		if (!target) {
 			target = GameObject.FindWithTag("Player").transform;
 		}
+
+		transform.position = CalcTargetPos ();
 	}
 
 	void LateUpdate () {
-		if (limits) {
-			Vector3 targetPos = CalcTargetPos ();
-			transform.position = Vector3.Lerp (transform.position, targetPos, interpVelocity * Time.deltaTime);
-		} else {
-			transform.position = target.position;
-		}
+		Vector3 targetPos = CalcTargetPos ();
+		transform.position = Vector3.Lerp (transform.position, targetPos, interpVelocity * Time.deltaTime);
 	}
 
 	Vector3 CalcTargetPos() {
@@ -47,11 +45,13 @@ public class CameraController : MonoBehaviour {
 		targetPos += (Vector3)offset;
 
 		//clamp targetPos to limits
-		Vector3 cameraSize = new Vector3 (camera.orthographicSize * camera.aspect, camera.orthographicSize);
-		Vector3 min = limits.worldMin + cameraSize;
-		Vector3 max = limits.worldMax - cameraSize;
-		targetPos.x = Mathf.Clamp (targetPos.x, min.x, max.x);
-		targetPos.y = Mathf.Clamp (targetPos.y, min.y, max.y);
+		if (limits) {
+			Vector3 cameraSize = new Vector3 (camera.orthographicSize * camera.aspect, camera.orthographicSize);
+			Vector3 min = limits.worldMin + cameraSize;
+			Vector3 max = limits.worldMax - cameraSize;
+			targetPos.x = Mathf.Clamp (targetPos.x, min.x, max.x);
+			targetPos.y = Mathf.Clamp (targetPos.y, min.y, max.y);
+		}
 
 		return targetPos;
 	}

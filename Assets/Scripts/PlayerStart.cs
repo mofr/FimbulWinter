@@ -29,5 +29,13 @@ public class PlayerStart : MonoBehaviour
 			break;
 		}
 	}
+
+	void OnDrawGizmos() {
+		if (direction == Direction.Left) {
+			Gizmos.DrawIcon (transform.position, "PlayerStartLeft");
+		} else {
+			Gizmos.DrawIcon (transform.position, "PlayerStartRight");
+		}
+	}
 }
 
