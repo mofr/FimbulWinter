@@ -19,6 +19,20 @@ public class CameraLimits : MonoBehaviour
 		}
 	}
 
+	void Awake() {
+		BoxCollider2D collider = gameObject.AddComponent<BoxCollider2D>();
+		collider.size = max - min;
+		collider.offset = (max + min) / 2;
+		collider.isTrigger = true;
+	}
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.tag != "Player")
+			return;
+		
+		Camera.main.GetComponent<CameraController> ().limits = this;
+	}
+
 	void OnDrawGizmos() {
 		Gizmos.color = Color.cyan;
 		Vector3 center = (min + max)/2;

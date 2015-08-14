@@ -8,9 +8,20 @@ public class CameraController : MonoBehaviour {
 	public float interpVelocity = 5f;
 	public Vector2 offset;
 
+	CameraLimits _limits;
+	public CameraLimits limits {
+		set {
+			if(_limits != value) {
+				_limits = value;
+				transform.position = CalcTargetPos();
+			}
+		}
+		get {
+			return _limits;
+		}
+	}
+
 	Camera camera;
-	CameraLimits limits;
-	Transform targetParent;
 	Vector3 lastTargetPos;
 
 	void Start () {
@@ -19,36 +30,19 @@ public class CameraController : MonoBehaviour {
 		if (!target) {
 			target = GameObject.FindWithTag("Player").transform;
 		}
-
-		targetParent = target.parent;
-		lastTargetPos = target.position;
-		limits = target.parent.GetComponentInParent<CameraLimits>();
-		transform.position = CalcTargetPos();
 	}
 
 	void LateUpdate () {
-		CameraLimits newLimits = limits;
-
-		if (target) {
-			lastTargetPos = target.position;
-		}
-
-		if (target && target.parent != targetParent) {
-			targetParent = target.parent;
-			newLimits = target.parent.GetComponentInParent<CameraLimits> ();
-		}
-
-		if(newLimits != limits) {
-			limits = newLimits;
-			transform.position = CalcTargetPos();
-		} else {
+		if (limits) {
 			Vector3 targetPos = CalcTargetPos ();
 			transform.position = Vector3.Lerp (transform.position, targetPos, interpVelocity * Time.deltaTime);
+		} else {
+			transform.position = target.position;
 		}
 	}
 
 	Vector3 CalcTargetPos() {
-		Vector3 targetPos = lastTargetPos; 
+		Vector3 targetPos = target.position;
 		targetPos.z = transform.position.z;
 		targetPos += (Vector3)offset;
 
