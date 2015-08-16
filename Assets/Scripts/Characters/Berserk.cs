@@ -102,7 +102,7 @@ public class Berserk : MonoBehaviour {
 			return;
 		
 		if (collider.gameObject == player) {
-			Damage damage = new Damage(this.damage, character, transform.position);
+			Damage damage = new Damage(this.damage, gameObject, transform.position);
 			collider.gameObject.GetComponent<Damageable>().TakeDamage(damage);
 		}
 	}

@@ -62,7 +62,7 @@ public class AxeThrower : MonoBehaviour
 		projectile.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
 		
 		projectile.GetComponent<Projectile> ().velocity = projectileSpeed * (player.transform.position - projectile.transform.position).normalized;
-		projectile.GetComponent<Projectile> ().originator = character;
+		projectile.GetComponent<Projectile> ().originator = gameObject;
 		projectile.GetComponent<Projectile> ().damage = damage;
 	}
 }

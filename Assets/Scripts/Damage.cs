@@ -4,10 +4,10 @@ using System.Collections;
 public class Damage
 {
 	public float amount;
-	public Character originator;
+	public GameObject originator;
 	public Vector3 point;
 
-	public Damage(float amount, Character originator, Vector3 point)
+	public Damage(float amount, GameObject originator, Vector3 point)
 	{
 		this.amount = amount;
 		this.originator = originator;

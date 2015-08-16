@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
 	public Vector2 velocity;
 
 	[HideInInspector]
-	public Character originator;
+	public GameObject originator;
 
 	[HideInInspector]
 	public float damage;
@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.gameObject == originator.gameObject)
+		if (collider.gameObject == originator)
 			return;
 
 		Damageable target = collider.GetComponent<Damageable>();

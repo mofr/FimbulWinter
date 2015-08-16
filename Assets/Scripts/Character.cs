@@ -57,11 +57,14 @@ public class Character : MonoBehaviour {
 		if (dead)
 			return;
 
-		if (damage.originator.enemy == enemy)
-			return;
+		Character originatorCharacter = damage.originator.GetComponent<Character>();
+		if (originatorCharacter) {
+			if (originatorCharacter.enemy == enemy)
+				return;
+			movement.LookAt (damage.originator.transform.position);
+		}
 
 		health -= damage.amount;
-		movement.LookAt (damage.originator.transform.position);
 		if (health <= 0) {
 			Kill(damage);
 		} else {

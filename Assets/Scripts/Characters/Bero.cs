@@ -63,7 +63,7 @@ public class Bero : MonoBehaviour {
 				continue;
 			}
 			
-			damageable.TakeDamage(attackDamage, character, attackCollider.bounds.center);
+			damageable.TakeDamage(attackDamage, gameObject, attackCollider.bounds.center);
 		}
 	}
 
@@ -75,7 +75,7 @@ public class Bero : MonoBehaviour {
 				continue;
 			}
 			
-			damageable.TakeDamage(attackDamage, character, thrustCollider.bounds.center);
+			damageable.TakeDamage(attackDamage, gameObject, thrustCollider.bounds.center);
 		}
 	}
 
