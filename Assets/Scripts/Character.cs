@@ -65,9 +65,11 @@ public class Character : MonoBehaviour {
 		}
 
 		health -= damage.amount;
+		bool hugeDamage = damage.amount / maxHealth > 0.1;
+
 		if (health <= 0) {
 			Kill(damage);
-		} else {
+		} else if(hugeDamage) {
 			anim.SetTrigger ("TakeDamage");
 			recoveryRemains = Mathf.Max(recoveryRemains, recoveryTime);
 			movement.canMove = false;

@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 5c1510c0a2f361547a6fcf45795ce805
-timeCreated: 1439735825
+timeCreated: 1439812448
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - firePrefab: {fileID: 127312, guid: 6bf395fe356734540854b91a3c19e808, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
