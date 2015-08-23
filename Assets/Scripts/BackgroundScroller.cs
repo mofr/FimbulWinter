@@ -10,6 +10,8 @@ public class BackgroundScroller : MonoBehaviour {
 	public float yOffset = 0f;
 	public float xOffset = 0f;
 
+	public Color color = Color.white;
+
 	GameObject bg1;
 	GameObject bg2;
 
@@ -24,12 +26,14 @@ public class BackgroundScroller : MonoBehaviour {
 		renderer1 = bg1.AddComponent<SpriteRenderer>();
 		renderer1.sortingLayerName = "Background";
 		renderer1.sprite = firstSprite;
+		renderer1.color = color;
 
 		bg2 = new GameObject ("bg2");
 		bg2.transform.parent = scrollingBackground.transform;
 		renderer2 = bg2.AddComponent<SpriteRenderer>();
 		renderer2.sortingLayerName = "Background";
 		renderer2.sprite = randomSprite();
+		renderer2.color = color;
 
 		bg1.transform.Translate (xOffset, yOffset, 0);
 		bg2.transform.Translate (xOffset + renderer1.sprite.bounds.size.x/2 + renderer2.sprite.bounds.size.x/2 - 0.01f, yOffset, 0);

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8af8eccad64e949a412c34b16fcd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 30
+  healAmount: 100
   pickupSound: {fileID: 8300000, guid: 2d528a958a6d757418b918dbb86e3224, type: 3}
   pickupEffectPrefab: {fileID: 176930, guid: fed1e2e0c57f85740b148ba8d9f3ee83, type: 2}
 --- !u!212 &21209988
@@ -250,6 +250,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: healAmount
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
